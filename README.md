@@ -1,4 +1,4 @@
-🛍️ # Ecommerce Website with React, TypeScript, Redux, Node.js, GraphQL, and MySQL 🚀
+## 🛍️ Ecommerce Website created using React, TypeScript, Redux, Node.js, Express, GraphQL, and MySQL 🚀
 
 Welcome to the Ecommerce Website project! This project is designed for learning purposes and is aimed at creating a fully functional ecommerce platform where users can register as sellers, list their digital products, and customers can purchase products securely online.
 
