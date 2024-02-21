@@ -11,30 +11,30 @@ const Mutation = {
 
             // basic checks
             if (username.length < 5) {
-                reject("Username must have atleast 5 characters!")
+                return reject("Username must have atleast 5 characters!")
             }
             if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-                reject("Username can only contain Alphabet, Number And Underscore!")
+                return reject("Username can only contain Alphabet, Number And Underscore!")
             }
             if (password.length < 8) {
-                reject("Password must have atleast 8 characters!")
+                return reject("Password must have atleast 8 characters!")
             }
             if (!validator.validate(email)) {
-                reject("Please enter a valid email address!")
+                return reject("Please enter a valid email address!")
             }
 
             // checking if user already exist with that email or username
             dbPool.query(`SELECT * FROM users WHERE email = '${email}' OR username= '${username}'`, async (error, results) => {
                 if (error) {
                     errorHandler(error);
-                    reject("An Internal Server Error Occurred!");
+                    return reject("An Internal Server Error Occurred!");
                 }
                 if (results && results.length > 0) {
                     if (results[0].username === username) {
-                        reject("A user already exists with that username!");
+                        return reject("A user already exists with that username!");
                     }
                     else if (results[0].email === email) {
-                        reject("A user already exists with that email!");
+                        return reject("A user already exists with that email!");
                     }
                 }
                 else {
@@ -48,13 +48,13 @@ const Mutation = {
                         , (error, results) => {
                             if (error) {
                                 errorHandler(error);
-                                reject("An Internal Server Error Occurred!");
+                                return reject("An Internal Server Error Occurred!");
                             }
                             dbPool.query(
                                 `SELECT id, username, email FROM users WHERE username = '${username}' OR email = '${email}'`, (error, results) => {
                                     if (error) {
                                         errorHandler(error);
-                                        reject("An Internal Server Error Occurred!");
+                                        return reject("An Internal Server Error Occurred!");
                                     }
                                     
                                     // making a JWT
@@ -71,17 +71,17 @@ const Mutation = {
         return new Promise(async (resolve, reject) => {
             // basic checks
             if (username.length < 1) {
-                reject("A Username or Email is required!")
+                return reject("A Username or Email is required!")
             }
             if (password.length < 1) {
-                reject("A Password is required!")
+                return reject("A Password is required!")
             }
 
             //check if user exists or not
             dbPool.query(`SELECT id, username, email FROM users WHERE email = '${username}' OR username = '${username}'`, (error, results) => {
                 if (error) {
                     errorHandler(error);
-                    reject("An Internal Server Error Occurred!");
+                    return reject("An Internal Server Error Occurred!");
                 }
                 if (results && results.length > 0) {
 
