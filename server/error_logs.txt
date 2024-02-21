@@ -1,0 +1,96 @@
+----------------------------------------------------
+Wed Feb 21 2024 11:25:08 GMT+0530 (India Standard Time)
+JsonWebTokenError: invalid token
+    at module.exports [as verify] (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\jsonwebtoken\verify.js:82:17)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:21:17
+    at new Promise (<anonymous>)
+    at Object.user (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:19:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at executeFields (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:414:22)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:344:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)
+    at executeIncrementally (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\incrementalDeliveryPolyfill.js:47:34)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 21 2024 11:24:47 GMT+0530 (India Standard Time)
+JsonWebTokenError: jwt must be provided
+    at module.exports [as verify] (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\jsonwebtoken\verify.js:60:17)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:21:17
+    at new Promise (<anonymous>)
+    at Object.user (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:19:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at executeFields (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:414:22)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:344:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)
+    at executeIncrementally (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\incrementalDeliveryPolyfill.js:47:34)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 21 2024 11:24:15 GMT+0530 (India Standard Time)
+JsonWebTokenError: jwt must be provided
+    at module.exports [as verify] (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\jsonwebtoken\verify.js:60:17)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:21:17
+    at new Promise (<anonymous>)
+    at Object.user (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:19:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at executeFields (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:414:22)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:344:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)
+    at executeIncrementally (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\incrementalDeliveryPolyfill.js:47:34)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 21 2024 11:24:08 GMT+0530 (India Standard Time)
+JsonWebTokenError: jwt must be provided
+    at module.exports [as verify] (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\jsonwebtoken\verify.js:60:17)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:21:17
+    at new Promise (<anonymous>)
+    at Object.user (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:19:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at executeFields (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:414:22)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:344:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)
+    at executeIncrementally (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\incrementalDeliveryPolyfill.js:47:34)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 21 2024 11:24:04 GMT+0530 (India Standard Time)
+JsonWebTokenError: jwt must be provided
+    at module.exports [as verify] (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\jsonwebtoken\verify.js:60:17)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:20:17
+    at new Promise (<anonymous>)
+    at Object.user (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:19:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at executeFields (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:414:22)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:344:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)
+    at executeIncrementally (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\incrementalDeliveryPolyfill.js:47:34)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 21 2024 11:23:37 GMT+0530 (India Standard Time)
+JsonWebTokenError: jwt must be provided
+    at module.exports [as verify] (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\jsonwebtoken\verify.js:60:17)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:21:17
+    at new Promise (<anonymous>)
+    at Object.user (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\userQueryResolvers.js:19:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at executeFields (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:414:22)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:344:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)
+    at executeIncrementally (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\incrementalDeliveryPolyfill.js:47:34)----------------------------------------------------
+
+
+

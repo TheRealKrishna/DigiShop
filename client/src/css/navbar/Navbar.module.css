@@ -1,0 +1,35 @@
+.navbar{
+    
+}
+
+.navbarContent{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoContainer{
+    width: 200px;
+}
+
+.logoContainer > img{
+    width: 100%;
+}
+
+.categoryContainer{
+    
+}
+
+.categoryContainer > ul{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+
+.categoryContainer > ul > li{
+    list-style: none;
+}
+
+.categoryContainer > ul > li > a{
+    text-decoration: none;
+}
+
