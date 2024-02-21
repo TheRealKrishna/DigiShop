@@ -11,13 +11,16 @@ const Mutation = {
 
             // basic checks
             if (username.length < 5) {
-                reject("Username must have atleast 5 characters")
+                reject("Username must have atleast 5 characters!")
+            }
+            if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+                reject("Username can only contain Alphabet, Number And Underscore!")
             }
             if (password.length < 8) {
-                reject("Password must have atleast 8 characters")
+                reject("Password must have atleast 8 characters!")
             }
             if (!validator.validate(email)) {
-                reject("Please enter a valid email address")
+                reject("Please enter a valid email address!")
             }
 
             // checking if user already exist with that email or username
@@ -28,18 +31,16 @@ const Mutation = {
                 }
                 if (results && results.length > 0) {
                     if (results[0].username === username) {
-                        reject("A user already exists with that username.");
+                        reject("A user already exists with that username!");
                     }
                     else if (results[0].email === email) {
-                        reject("A user already exists with that email.");
+                        reject("A user already exists with that email!");
                     }
                 }
                 else {
 
                     // encrypting password
                     const securePassword = bcrypt.hashSync(password, 10);
-                    console.log(password)
-                    console.log(securePassword)
 
                     // creating a user with those credentials                    
                     dbPool.query(
@@ -49,16 +50,18 @@ const Mutation = {
                                 errorHandler(error);
                                 reject("An Internal Server Error Occurred!");
                             }
+                            dbPool.query(
+                                `SELECT id, username, email FROM users WHERE username = '${username}' OR email = '${email}'`, (error, results) => {
+                                    if (error) {
+                                        errorHandler(error);
+                                        reject("An Internal Server Error Occurred!");
+                                    }
+                                    
+                                    // making a JWT
+                                    const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
 
-                            // making a JWT
-                            const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
-
-                            resolve({
-                                id: results.insertId,
-                                username,
-                                email,
-                                auth_token
-                            })
+                                    resolve({ ...results[0], auth_token })
+                                })
                         })
                 }
             })
@@ -75,13 +78,16 @@ const Mutation = {
             }
 
             //check if user exists or not
-            dbPool.query(`SELECT * FROM users WHERE email = '${username}' OR username = '${username}'`, (error, results) => {
+            dbPool.query(`SELECT id, username, email FROM users WHERE email = '${username}' OR username = '${username}'`, (error, results) => {
                 if (error) {
                     errorHandler(error);
                     reject("An Internal Server Error Occurred!");
                 }
                 if (results && results.length > 0) {
 
+                    // making a JWT
+                    const auth_token = jwt.sign({ id: results[0].id }, JWT_SECRET)
+                    resolve({ ...results[0], auth_token })
                 }
             })
         })
