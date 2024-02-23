@@ -31,6 +31,7 @@ const resolvers = require("./resolvers/resolvers")
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    csrfPrevention: false,
     context: ({ req }) => {
         console.log("hii i am context");
         console.log(req.headers.token);

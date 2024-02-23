@@ -7,7 +7,7 @@ import { FiUser } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
-import { gql, useMutation } from "@apollo/client";
+import { gql, useApolloClient, useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -17,18 +17,20 @@ export default function SignUp() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
-
-    const [signUpMutation] = useMutation(gql`
-        mutation createAccount($name: String!, $email: String!, $password: String!) {
-            createAccount(name: $name, email: $email, password: $password) {
-                id
-                name
-                email
-                auth_token
-            }
-        }
-        `
-    )
+    const client = useApolloClient();
+    // const [signUpMutation] = useMutation(gql`
+    //     mutation createAccount($name: String!, $email: String!, $password: String!) {
+    //         createAccount(name: $name, email: $email, password: $password) {
+    //             id
+    //             name
+    //             email
+    //             auth_token
+    //         }
+    //     }
+    //     `, {
+    //     errorPolicy: "all"
+    // }
+    // )
 
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "" })
 
@@ -41,9 +43,23 @@ export default function SignUp() {
     const onSignUp = (e: any) => {
         e.preventDefault()
         toast.promise(new Promise(async (resolve: any, reject: any) => {
-            const response: any = await signUpMutation({ variables: credentials })
+            // const response: any = await signUpMutation({ variables: credentials })
+            const response = await client.mutate({
+                mutation: gql`
+                    mutation CreateAccount($name: String!, $email: String!, $password: String!) {
+                        createAccount(name: $name, email: $email, password: $password) {
+                            id
+                            name
+                            email
+                            auth_token
+                        }
+                    }
+                `,
+                variables: credentials,
+                errorPolicy:"all"
+            });
+            console.log(response)
             if (!response.errors) {
-                console.log(response)
                 localStorage.setItem("auth_token", response.data.createAccount.auth_token)
                 dispatch(login(response.data.createAccount))
                 return resolve()
@@ -56,7 +72,7 @@ export default function SignUp() {
                 pending: 'Creating your account...',
                 success: 'Account successfully created!',
                 error: {
-                    render: (error: any) => `Error: ${error.data}`
+                    render: (error: any) => error.data
                 }
             })
     }

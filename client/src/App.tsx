@@ -5,31 +5,33 @@ import Home from './components/home/Home';
 import SignUp from './components/auth/SignUp';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { gql, useQuery } from '@apollo/client';
-import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from '@apollo/client';
+import gql from "graphql-tag";
+import { useDispatch } from 'react-redux';
 import { login } from './redux/slices/loginSlice';
 
 function App() {
   const dispatch = useDispatch()
   const authToken = localStorage.getItem('auth_token');
-  const { loading, error, data } = useQuery(gql`
-    query Query {
-      user {
-        id
-        name
-        email
-        auth_token
-      }
+  const GET_USER_QUERY = gql`
+  query GetUser {
+    user {
+      id
+      name
+      email
+      auth_token
     }
-    `, {
+  }
+`;
+  const { loading, error, data } = useQuery(GET_USER_QUERY, {
     context: {
       headers: {
         "auth_token": authToken ? authToken : "",
         "Content-Type": "application/json"
       }
     },
-  }
-  )
+    errorPolicy:"all"
+  });
   if (loading) {
     return (
       <div className="loader-Container">
