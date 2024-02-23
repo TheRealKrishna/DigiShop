@@ -1,35 +1,202 @@
-.navbar{
-    
+.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbarContent{
+.navbarContent {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
 }
 
-.logoContainer{
-    width: 200px;
+.navbarLeftContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
 }
 
-.logoContainer > img{
+.hamburgerMenu {
+    display: none;
+}
+
+.logoContainer {
+    width: 100px;
+}
+
+.logoContainer>img {
     width: 100%;
 }
 
-.categoryContainer{
-    
-}
+.categoryContainer {}
 
-.categoryContainer > ul{
+.categoryContainer>ul {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     gap: 2rem;
+    margin: 0px;
 }
 
-.categoryContainer > ul > li{
+.categoryContainer>ul>li {
     list-style: none;
 }
 
-.categoryContainer > ul > li > a{
+.categoryContainer>ul>li>a {
     text-decoration: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 7px;
+    text-shadow: -.35px -.35px 0 transparent,
+        .35px .35px transparent;
 }
 
+.categoryContainer>ul>li>a:hover {
+    text-shadow: -.35px -.35px 0 rgb(0, 0, 0),
+        .35px .35px rgb(0, 0, 0);
+}
+
+.categoryContainer>ul>li>a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2.5px;
+    left: 50%;
+    position: absolute;
+    background: #ff0303;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+    border-radius: 100px;
+}
+
+.categoryContainer>ul>li>a:hover:after {
+    width: 50%;
+    left: 25%;
+}
+
+.navbarRightContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+}
+
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 100px;
+    background-color: rgb(245, 245, 245);
+    padding: 10px 15px;
+    width: 16rem;
+}
+
+
+
+.searchBarContainer svg {
+    font-size: 22px;
+}
+
+.searchBarContainer input {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    width: 14rem;
+    background-color: rgb(245, 245, 245);
+}
+
+.searchBarContainer:focus-within {
+    border: 2px solid black;
+}
+
+.mobileSearchBarContainer {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 100px;
+    background-color: rgb(245, 245, 245);
+    padding: 10px 15px;
+    margin-block: 7px;
+    width: 100%;
+}
+
+.mobileSearchBarContainer svg {
+    font-size: 22px;
+}
+
+.mobileSearchBarContainer input {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    width: 13rem;
+    background-color: rgb(245, 245, 245);
+}
+
+.mobileSearchBarContainer:focus-within {
+    border: 2px solid black;
+}
+
+.toggleSearchIcon {
+    display: none;
+    cursor: pointer;
+}
+
+.menuIcons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.menuIcons>svg {
+    font-size: 22px;
+}
+
+
+@media (max-width:1024px) {
+    .toggleSearchIcon {
+        display: block;
+    }
+
+    .searchBarContainer {
+        display: none;
+    }
+
+    .navbarContent {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width:768px) {
+    .categoryContainer {
+        display: none;
+    }
+
+    .hamburgerMenu {
+        display: block;
+    }
+
+    .logoContainer {
+        width: 75px;
+    }
+
+    .navbarLeftContainer {
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    .mobileSearchBarContainer {
+        margin-block: 0px;
+    }
+}
+
+@media (max-width:320px) {
+    .mobileSearchBarContainer input {
+        width: 11rem;
+    }
+}

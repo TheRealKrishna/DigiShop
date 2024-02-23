@@ -1,3 +1,4 @@
+const errorHandler = require('../handlers/error_handler');
 const users = require('./Models/users');
 const mysql = require("mysql")
 
@@ -11,7 +12,7 @@ const dbConnect = () => {
     const sql = mysql.createConnection(dbConfig);
     sql.connect((err) => {
         if (err) {
-            console.error('Error connecting to MySQL database: ' + err.stack);
+            errorHandler(err)
             return;
         }
         console.log('Connected to MySQL database');

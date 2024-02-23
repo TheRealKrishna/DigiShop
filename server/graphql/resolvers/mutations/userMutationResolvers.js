@@ -3,39 +3,31 @@ const errorHandler = require("../../../handlers/error_handler")
 const validator = require("email-validator");
 const bcrypt = require("bcryptjs")
 const jwt = require('jsonwebtoken');
+const { GraphQLError } = require('graphql');
 const JWT_SECRET = process.env.JWT_SECRET
 
 const Mutation = {
-    createAccount: async (parent, { username, email, password }) => {
+    createAccount: async (parent, { name, email, password }) => {
         return new Promise(async (resolve, reject) => {
-
             // basic checks
-            if (username.length < 5) {
-                return reject("Username must have atleast 5 characters!")
-            }
-            if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-                return reject("Username can only contain Alphabet, Number And Underscore!")
+            if (name.length < 3) {
+                return reject(new GraphQLError("Name must have atleast 3 characters!"))
             }
             if (password.length < 8) {
-                return reject("Password must have atleast 8 characters!")
+                return reject(new GraphQLError("Password must have atleast 8 characters!"))
             }
             if (!validator.validate(email)) {
-                return reject("Please enter a valid email address!")
+                return reject(new GraphQLError("Please enter a valid email address!"))
             }
 
-            // checking if user already exist with that email or username
-            dbPool.query(`SELECT * FROM users WHERE email = '${email}' OR username= '${username}'`, async (error, results) => {
+            // checking if user already exist with that email
+            dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, async (error, results) => {
                 if (error) {
                     errorHandler(error);
-                    return reject("An Internal Server Error Occurred!");
+                    return reject(new GraphQLError("An Internal Server Error Occurred!"));
                 }
                 if (results && results.length > 0) {
-                    if (results[0].username === username) {
-                        return reject("A user already exists with that username!");
-                    }
-                    else if (results[0].email === email) {
-                        return reject("A user already exists with that email!");
-                    }
+                    return reject(new GraphQLError("A user already exists with that email!"))
                 }
                 else {
 
@@ -44,22 +36,22 @@ const Mutation = {
 
                     // creating a user with those credentials                    
                     dbPool.query(
-                        `INSERT INTO users (username, email, password) VALUES ('${username}', '${email}', '${securePassword}')`
+                        `INSERT INTO users (name, email, password) VALUES ('${name}', '${email}', '${securePassword}')`
                         , (error, results) => {
                             if (error) {
                                 errorHandler(error);
-                                return reject("An Internal Server Error Occurred!");
+                                return reject(new GraphQLError("An Internal Server Error Occurred!"));
                             }
+
+                            // making a JWT
+                            const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
+
                             dbPool.query(
-                                `SELECT id, username, email FROM users WHERE username = '${username}' OR email = '${email}'`, (error, results) => {
+                                `SELECT id, name, email FROM users WHERE email = '${email}'`, (error, results) => {
                                     if (error) {
                                         errorHandler(error);
-                                        return reject("An Internal Server Error Occurred!");
+                                        return reject(new GraphQLError("An Internal Server Error Occurred!"));
                                     }
-                                    
-                                    // making a JWT
-                                    const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
-
                                     resolve({ ...results[0], auth_token })
                                 })
                         })
@@ -67,21 +59,21 @@ const Mutation = {
             })
         })
     },
-    login: async (parent, { username, password }) => {
+    login: async (parent, { email, password }) => {
         return new Promise(async (resolve, reject) => {
             // basic checks
-            if (username.length < 1) {
-                return reject("A Username or Email is required!")
+            if (email.length < 1) {
+                return reject(new GraphQLError("An Email is required!"))
             }
             if (password.length < 1) {
-                return reject("A Password is required!")
+                return reject(new GraphQLError("A Password is required!"))
             }
 
             //check if user exists or not
-            dbPool.query(`SELECT id, username, email FROM users WHERE email = '${username}' OR username = '${username}'`, (error, results) => {
+            dbPool.query(`SELECT id, name, email FROM users WHERE email = '${email}'`, (error, results) => {
                 if (error) {
                     errorHandler(error);
-                    return reject("An Internal Server Error Occurred!");
+                    return reject(new GraphQLError("An Internal Server Error Occurred!"));
                 }
                 if (results && results.length > 0) {
 

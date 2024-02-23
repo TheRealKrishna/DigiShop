@@ -13,7 +13,7 @@ app.use(express.json());
 const startGraphql = async () => {
     await server.start();
     app.use(
-        "/graphql",
+        "/api/graphql",
         expressMiddleware(server, {
             context: ({ req }) => {
                 return req.headers
@@ -25,7 +25,7 @@ const startGraphql = async () => {
 
 startGraphql();
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Backend For DigiShop!');
 })
 

@@ -8,9 +8,6 @@
 # testing
 /coverage
 
-# production
-client/build
-
 # misc
 .DS_Store
 .env.local
@@ -23,12 +20,15 @@ client/.env.development
 client/.env.production
 client/node_modules
 client/server.zip
+client/build
 
 
 server/.env
 server/.env.development
 server/.env.production
 server/node_modules
+server/server.zip
+server/api.zip
 
 
 npm-debug.log*

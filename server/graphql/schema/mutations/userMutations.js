@@ -1,7 +1,7 @@
 const userMutations = `
   type Mutation {
-    createAccount(username: String!, email: String!, password: String!): User!
-    login(username:String!, password:String!): User!
+    createAccount(name: String!, email: String!, password: String!): User
+    login(email:String!, password:String!): User
   }
 `;
 

@@ -1,0 +1,16 @@
+.carousel{
+    display: block;
+}
+
+.mobileCarousel{
+    display: none;
+}
+
+@media (max-width:425px) {
+    .carousel{
+        display: none;
+    }
+    .mobileCarousel{
+        display: block;
+    }
+}
