@@ -2,55 +2,39 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
-import SignUp from './components/auth/SignUp';
+import Signup from './components/auth/Signup';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useQuery } from '@apollo/client';
-import gql from "graphql-tag";
 import { useDispatch } from 'react-redux';
 import { login } from './redux/slices/loginSlice';
+import { GET_USER } from './graphql/queries/userQueries';
+import Loader from './components/loaders/Loader';
+import Login from './components/auth/Login';
+import ForgotPassword from './components/auth/ForgotPassword';
+import ResetPassword from './components/auth/ResetPassword';
 
 function App() {
   const dispatch = useDispatch()
-  const authToken = localStorage.getItem('auth_token');
-  const GET_USER_QUERY = gql`
-  query GetUser {
-    user {
-      id
-      name
-      email
-      auth_token
-    }
-  }
-`;
-  const { loading, error, data } = useQuery(GET_USER_QUERY, {
-    context: {
-      headers: {
-        "auth_token": authToken ? authToken : "",
-        "Content-Type": "application/json"
-      }
-    },
-    errorPolicy:"all"
-  });
+  const { loading, error, data } = useQuery(GET_USER);
+
   if (loading) {
-    return (
-      <div className="loader-Container">
-        <span className="loader"></span>
-      </div>
-    )
+    return (<Loader />)
   }
-  else if (error) {
-    localStorage.removeItem("auth_token")
-  }
-  else if (!error) {
-    dispatch(login(data.user))
+  else {
+    if (error) {
+      localStorage.removeItem("auth_token")
+    }
+    if (!error) {
+      dispatch(login(data.user))
+    }
   }
 
   return (
     <Router>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -62,7 +46,10 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<><Navbar /><Home /></>} />
-        <Route path="/auth/signup" element={<SignUp />} />
+        <Route path="/auth/signup" element={<Signup />} />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+        <Route path="/auth/reset-password" element={<ResetPassword />} />
       </Routes>
     </Router>
   );

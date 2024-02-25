@@ -151,9 +151,10 @@
     align-items: center;
     gap: 1rem;
     cursor: pointer;
+    list-style: none;
 }
 
-.menuIcons>svg {
+.menuIcons svg {
     font-size: 22px;
 }
 

@@ -1,4 +1,4 @@
-import Styles from "../../css/auth/Signup.module.css"
+import Styles from "../../css/auth/Login.module.css"
 import logoRectangle from "../../assets/logo/Digishop-Logo-Rectangle.png"
 import { FaFacebookF, FaGoogle, FaLinkedinIn, FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6";
@@ -9,17 +9,17 @@ import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { login } from "../../redux/slices/loginSlice";
-import { SIGN_UP } from "../../graphql/mutations/userMutations";
+import { LOGIN } from "../../graphql/mutations/userMutations";
 
-export default function Signup() {
+export default function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [apiCalling, setApiCalling] = useState(false)
-    const [credentials, setCredentials] = useState({ name: "", email: "", password: "" })
+    const [credentials, setCredentials] = useState({ email: "", password: "" })
     const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
-    const [SignUpMutation] = useMutation(SIGN_UP)
+    const [loginMutation] = useMutation(LOGIN)
 
     const onInputsChange = (e: any) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
@@ -27,14 +27,14 @@ export default function Signup() {
 
     const [passwordVisibility, setPasswordVisibility] = useState<Boolean>(false)
 
-    const onSignUp = (e: any) => {
+    const onLogin = (e: any) => {
         e.preventDefault()
         setApiCalling(true)
         toast.promise(new Promise(async (resolve: Function, reject: Function) => {
-            const response: any = await SignUpMutation({ variables: credentials })
+            const response: any = await loginMutation({ variables: credentials })
             if (!response.errors) {
-                localStorage.setItem("auth_token", response.data.createAccount.auth_token)
-                dispatch(login(response.data.createAccount))
+                localStorage.setItem("auth_token", response.data.login.auth_token)
+                dispatch(login(response.data.login))
                 setApiCalling(false)
                 return resolve()
             }
@@ -44,8 +44,8 @@ export default function Signup() {
             }
         }),
             {
-                pending: 'Creating your account...',
-                success: 'Account successfully created!',
+                pending: 'Logging In...',
+                success: 'Logged in successfully!',
                 error: {
                     render: (error: any) => error.data
                 }
@@ -60,32 +60,20 @@ export default function Signup() {
 
 
     return (
-        <div className={Styles.signUpPage}>
+        <div className={Styles.loginPage}>
             <div className={Styles.circle}></div>
             <div className={Styles.circle}></div>
             <div className={Styles.circle}></div>
             <div className={Styles.circle}></div>
-            <div className={Styles.signUpContainer}>
+            <div className={Styles.loginContainer}>
                 <div className={Styles.leftContainer}>
-                    <div className={Styles.vectorText}>
-                        <h2>Hello Stranger!</h2>
-                        <p>Join us today and unlock a world of shopping convenience and exclusive deals.</p>
-                    </div>
-                    {/* <div className={Styles.vectorImageContainer}>
-                        <img src={vectorImage} alt="" />
-                    </div>   */}
-                    <div className={Styles.loginButtonContainer}>
-                        <Link to={"/auth/login"}><button>LOG IN</button></Link>
-                    </div>
-                </div>
-                <div className={Styles.rightContainer}>
                     <div className={Styles.logoContainer}>
                         <Link to={"/"}>
-                            <img src={logoRectangle} alt="" />
+                        <img src={logoRectangle} alt="" />
                         </Link>
                     </div>
-                    <div className={Styles.signUpContent}>
-                        <h2>Create Account</h2>
+                    <div className={Styles.loginContent}>
+                        <h2>Login</h2>
                         <div className={Styles.otherLoginIcons}>
                             <FaGoogle />
                             <FaFacebookF />
@@ -93,11 +81,7 @@ export default function Signup() {
                             <FaLinkedinIn />
                         </div>
                         <div className={Styles.orText}>OR</div>
-                        <form className={Styles.signUpForm} onSubmit={onSignUp}>
-                            <div className={Styles.nameInputContainer}>
-                                <FiUser />
-                                <input type="text" required minLength={3} name="name" value={credentials.name} onChange={onInputsChange} placeholder="Name" />
-                            </div>
+                        <form className={Styles.loginForm} onSubmit={onLogin}>
                             <div className={Styles.emailInputContainer}>
                                 <HiOutlineMail />
                                 <input type="email" required name="email" value={credentials.email} onChange={onInputsChange} placeholder="Email" />
@@ -109,15 +93,27 @@ export default function Signup() {
                                     passwordVisibility ? <FaRegEyeSlash onClick={() => setPasswordVisibility(!passwordVisibility)} style={{ cursor: "pointer" }} /> : <FaRegEye onClick={() => setPasswordVisibility(!passwordVisibility)} style={{ cursor: "pointer" }} />
                                 }
                             </div>
-                            <p className={Styles.privacyText}>By continuing, you agree to our <span>Terms of Service</span> and <span>Privacy Policy</span>.</p>
-                            <div className={Styles.signUpButtonContainer}>
-                                <button disabled={apiCalling} type="submit">SIGN UP</button>
+                            <Link to={"/auth/forgot-password"} className={Styles.forgotPassword}>→ Forgot Your Password? ←</Link>
+                            <div className={Styles.loginButtonContainer}>
+                                <button disabled={apiCalling} type="submit">LOGIN</button>
                             </div>
                         </form>
-                        <div className={Styles.mobileLoginButtonContainer}>
+                        <div className={Styles.mobileSignUpButtonContainer}>
                             <div className={Styles.orText}>OR</div>
-                            <Link to={"/auth/login"}><button>LOGIN</button></Link>
+                            <Link to={"/auth/signup"}><button>SIGN UP</button></Link>
                         </div>
+                    </div>
+                </div>
+                <div className={Styles.rightContainer}>
+                    <div className={Styles.vectorText}>
+                        <h2>Welcome Back!</h2>
+                        <p>Sign in to access your shopping cart and manage your orders.</p>
+                    </div>
+                    {/* <div className={Styles.vectorImageContainer}>
+                        <img src={vectorImage} alt="" />
+                    </div>   */}
+                    <div className={Styles.signupButtonContainer}>
+                        <Link to={"/auth/signup"}><button>SIGN UP</button></Link>
                     </div>
                 </div>
             </div>

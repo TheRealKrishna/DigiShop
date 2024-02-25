@@ -5,12 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from "./redux/store"
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
+import client from './graphql/apolloClient';
 
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_BACKEND_URI + "/graphql",
-  cache: new InMemoryCache(),
-});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

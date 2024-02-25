@@ -6,10 +6,24 @@ import { BsHandbag } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { CDropdown, CDropdownDivider, CDropdownItem, CDropdownMenu, CDropdownToggle } from "@coreui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/slices/loginSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
     const [searchBarVisibility, setSearchBarVisibility] = useState<Boolean>(false)
+    const navigate = useNavigate()
     const toggleSearchBar = () => setSearchBarVisibility(!searchBarVisibility)
+    const dispatch = useDispatch()
+    const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
+
+    const handleLogout = async()=>{
+        localStorage.removeItem("auth_token")
+        dispatch(logout())
+        toast.error("Logged out successfully!")
+    }
 
     return (
         <nav className={Styles.navbar}>
@@ -34,7 +48,15 @@ export default function Navbar() {
                     </div>
                     <div className={Styles.menuIcons}>
                         <IoSearch className={Styles.toggleSearchIcon} onClick={toggleSearchBar} />
-                        <FaRegUser />
+                        <CDropdown autoClose placement="bottom-start" variant='nav-item'>
+                            <CDropdownToggle caret={false} disabled={!isLoggedIn} color="transparent"><FaRegUser href="/none" onClick={()=>isLoggedIn ? null : navigate("/auth/login")} /></CDropdownToggle>
+                            <CDropdownMenu>
+                                <CDropdownItem>Action</CDropdownItem>
+                                <CDropdownItem>Another action</CDropdownItem>
+                                <CDropdownDivider />
+                                <CDropdownItem onClick={handleLogout}>Logout</CDropdownItem>
+                            </CDropdownMenu>
+                        </CDropdown>
                         <BsHandbag style={{ strokeWidth: "0.02rem" }} />
                     </div>
                 </div>

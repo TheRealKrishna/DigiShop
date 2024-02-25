@@ -5,6 +5,9 @@ const bcrypt = require("bcryptjs")
 const jwt = require('jsonwebtoken');
 const { GraphQLError } = require('graphql');
 const JWT_SECRET = process.env.JWT_SECRET
+const resetPasswordMail = require("../middleware/resetPasswordMail")
+const randomstring = require("randomstring");
+
 
 const Mutation = {
     createAccount: async (parent, { name, email, password }) => {
@@ -76,10 +79,46 @@ const Mutation = {
                     return reject(new GraphQLError("An Internal Server Error Occurred!"));
                 }
                 if (results && results.length > 0) {
-
                     // making a JWT
                     const auth_token = jwt.sign({ id: results[0].id }, JWT_SECRET)
                     resolve({ ...results[0], auth_token })
+                }
+            })
+        })
+    },
+    forgotPassword: async (parent, { email }) => {
+        return new Promise(async (resolve, reject) => {
+            const passwordResetToken = randomstring.generate()
+
+            // basic checks
+            if (email.length < 1) {
+                return reject(new GraphQLError("An Email is required!"))
+            }
+
+            dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, (error, results) => {
+                if (error) {
+                    errorHandler(error);
+                    return reject(new GraphQLError("An Internal Server Error Occured"));
+                }
+                else if (results && results.length > 0) {
+                    dbPool.query(`UPDATE users SET passwordResetToken = '${passwordResetToken}' WHERE email='${email}'`, (error, results) => {
+                        if (error) {
+                            errorHandler(error);
+                            return reject(new GraphQLError("An Internal Server Error Occurred!"));
+                        }
+                        if (results) {
+                            const success = resetPasswordMail(email, passwordResetToken);
+                            if (success) {
+                                return resolve({ message: "Password reset mail sent!", success: true })
+                            }
+                            else if (!success) {
+                                return reject(new GraphQLError("An Internal Server Error Occured!"))
+                            }
+                        }
+                    })
+                }
+                else{
+                    return reject(new GraphQLError("We could not find your account!"));
                 }
             })
         })

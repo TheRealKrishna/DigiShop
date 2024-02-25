@@ -9,6 +9,11 @@ const typeDefs = `
     auth_token: String!
   }
 
+  type ForgotPasswordResponse {
+    success: Boolean!
+    message: String!
+  }
+
   ${userQueries}
   ${userMutations}
 `;
