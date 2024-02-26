@@ -29,7 +29,6 @@ function App() {
       dispatch(login(data.user))
     }
   }
-
   return (
     <Router>
       <ToastContainer

@@ -11,4 +11,13 @@ const GET_USER = gql`
   }
 `;
 
-export {GET_USER}
+const PASSWORD_RESET_TOKEN_VERIFY = gql`
+    query resetPasswordTokenVerify {
+        resetPasswordTokenVerify {
+        message
+        success
+        }
+    }
+  `
+
+export {GET_USER, PASSWORD_RESET_TOKEN_VERIFY}

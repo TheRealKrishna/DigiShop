@@ -2,14 +2,13 @@ import Styles from "../../css/auth/Login.module.css"
 import logoRectangle from "../../assets/logo/Digishop-Logo-Rectangle.png"
 import { FaFacebookF, FaGoogle, FaLinkedinIn, FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6";
-import { FiUser } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../redux/slices/loginSlice";
 import { LOGIN } from "../../graphql/mutations/userMutations";
 

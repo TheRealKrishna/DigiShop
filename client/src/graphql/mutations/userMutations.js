@@ -23,12 +23,21 @@ mutation login($email: String!, $password: String!) {
 `;
 
 const FORGOT_PASSWORD = gql`
-    mutation forgotPassword {
-        forgotPassword(email: "agarwl.krishna2@gmail.com") {
+    mutation forgotPassword($email: String!, $reCaptchaToken: String!) {
+        forgotPassword(email: $email, reCaptchaToken: $reCaptchaToken) {
         message
         success
         }
     }
   `
 
-export { SIGN_UP, LOGIN, FORGOT_PASSWORD }
+const CHANGE_PASSWORD = gql`
+    mutation changePassword($password:String!, $confirmPassword: String!) {
+        changePassword(password: $password, confirmPassword: $confirmPassword) {
+            message
+            success
+            }
+        }
+    `
+
+export { SIGN_UP, LOGIN, FORGOT_PASSWORD, CHANGE_PASSWORD }

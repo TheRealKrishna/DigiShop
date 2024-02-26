@@ -9,7 +9,7 @@ const typeDefs = `
     auth_token: String!
   }
 
-  type ForgotPasswordResponse {
+  type booleanResponse {
     success: Boolean!
     message: String!
   }

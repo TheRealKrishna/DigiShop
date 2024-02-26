@@ -4,18 +4,23 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { PiLockKeyOpen } from "react-icons/pi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
-import { FORGOT_PASSWORD } from "../../graphql/mutations/userMutations";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { CHANGE_PASSWORD } from "../../graphql/mutations/userMutations";
 import { useSelector } from "react-redux";
+import Loader from "../loaders/Loader";
+import { PASSWORD_RESET_TOKEN_VERIFY } from "../../graphql/queries/userQueries";
 
 export default function ResetPassword() {
     const navigate = useNavigate()
     const [apiCalling, setApiCalling] = useState(false)
-    const [credentials, setCredentials] = useState({ email: "", password: "", confirmPassword: "" })
+    const [credentials, setCredentials] = useState({ password: "", confirmPassword: "" })
     const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
-    const [resetPasswordMutation] = useMutation(FORGOT_PASSWORD)
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const token = searchParams.get('token');
+    const [inputError, setInputError] = useState<any>(false)
 
     const onInputsChange = (e: any) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
@@ -23,14 +28,35 @@ export default function ResetPassword() {
 
     const [passwordVisibility, setPasswordVisibility] = useState<Boolean>(false)
 
+    const { data, loading, error, refetch } = useQuery(PASSWORD_RESET_TOKEN_VERIFY, {
+        context: {
+            headers: {
+                "passwordResetToken": token
+            }
+        }
+    })
+
+    const [changePassword] = useMutation(CHANGE_PASSWORD, {
+        context: {
+            headers: {
+                "passwordResetToken": token
+            }
+        }
+    })
+
+
     const onSubmit = (e: any) => {
         e.preventDefault()
         setApiCalling(true)
         toast.promise(new Promise(async (resolve: Function, reject: Function) => {
-            const response: any = await resetPasswordMutation({ variables: credentials })
+            if (inputError) {
+                return reject("Password and confirm password do not match")
+            }
+            const response: any = await changePassword({ variables: credentials })
             if (!response.errors) {
                 setApiCalling(false)
-                return resolve(response.data.resetPassword.message)
+                navigate("/auth/login")
+                return resolve(response.data.changePassword.message)
             }
             else {
                 setApiCalling(false)
@@ -48,12 +74,44 @@ export default function ResetPassword() {
             })
     }
 
+
     useEffect(() => {
         if (isLoggedIn) {
             navigate("/");
         }
     }, [isLoggedIn, navigate]);
 
+    useEffect(() => {
+        if (credentials.confirmPassword && credentials.password !== credentials.confirmPassword) {
+            setInputError("Passwords Do Not Match")
+        }
+        else {
+            setInputError(false)
+        }
+    }, [credentials])
+
+    useEffect(()=>{
+        refetch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [window.location.pathname])
+
+
+    if (loading || !token) {
+        return (<Loader />)
+    } else {
+        if (error) {
+            toast.error(String(error).replace("ApolloError: ", ""), {
+                toastId: "passwordResetTokenVerifyErrorToast"
+            })
+            navigate("/auth/login")
+        }
+        else if (!data.resetPasswordTokenVerify.success) {
+            toast.error(data.resetPasswordTokenVerify.message, {
+                toastId: "passwordResetTokenVerifyErrorToast"
+            })
+            navigate("/auth/login")
+        }
+    }
 
     return (
         <div className={Styles.resetPasswordPage}>
@@ -83,26 +141,23 @@ export default function ResetPassword() {
                     <div className={Styles.resetPasswordContent}>
                         <h2>Change Password</h2>
                         <form className={Styles.resetPasswordForm} onSubmit={onSubmit}>
-                            <div className={Styles.passwordInputContainer}>
+                            <div className={Styles.passwordInputContainer} style={{ boxShadow: inputError ? "0 0 0 1px red" : "0 0 0 1px #eee" }}>
                                 <RiLockPasswordLine />
                                 <input type={passwordVisibility ? "text" : "password"} required minLength={8} name="password" value={credentials.password} onChange={onInputsChange} placeholder="Password" />
                             </div>
-                            <div className={Styles.passwordInputContainer}>
+                            <div className={Styles.passwordInputContainer} style={{ boxShadow: inputError ? "0 0 0 1px red" : "0 0 0 1px #eee" }}>
                                 <PiLockKeyOpen />
                                 <input type={passwordVisibility ? "text" : "password"} required minLength={8} name="confirmPassword" value={credentials.confirmPassword} onChange={onInputsChange} placeholder="Confirm Password" />
                                 {
                                     passwordVisibility ? <FaRegEyeSlash onClick={() => setPasswordVisibility(!passwordVisibility)} style={{ cursor: "pointer" }} /> : <FaRegEye onClick={() => setPasswordVisibility(!passwordVisibility)} style={{ cursor: "pointer" }} />
                                 }
                             </div>
+                            <p className={Styles.inputErrorText} style={{ visibility: inputError ? "visible" : "hidden" }}>&nbsp;{inputError} </p>
                             <p className={Styles.privacyText}>Set your new password to proceed.</p>
                             <div className={Styles.resetPasswordButtonContainer}>
-                                <button disabled={apiCalling} type="submit">SUBMIT</button>
+                                <button disabled={apiCalling || inputError} type="submit">SUBMIT</button>
                             </div>
                         </form>
-                        <div className={Styles.mobileLoginButtonContainer}>
-                            <div className={Styles.orText}>OR</div>
-                            <Link to={"/auth/login"}><button>LOGIN</button></Link>
-                        </div>
                     </div>
                 </div>
             </div>
