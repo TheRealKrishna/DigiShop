@@ -6,7 +6,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { toast } from "react-toastify";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CHANGE_PASSWORD } from "../../graphql/mutations/userMutations";
 import { useSelector } from "react-redux";
 import Loader from "../loaders/Loader";
