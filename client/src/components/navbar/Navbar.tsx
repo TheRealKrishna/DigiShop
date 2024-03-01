@@ -1,5 +1,5 @@
 import Styles from "../../css/navbar/Navbar.module.css"
-import logoRectangle from "../../assets/logo/Digishop-Logo-Rectangle.png"
+import logoRectangle from "../../assets/logo/logo-rectangle.png"
 import { IoSearchOutline, IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { BsHandbag } from "react-icons/bs";

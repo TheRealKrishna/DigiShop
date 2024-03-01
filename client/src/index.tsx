@@ -7,18 +7,20 @@ import { Provider } from 'react-redux';
 import { store } from "./redux/store"
 import { ApolloProvider } from '@apollo/client';
 import client from './graphql/apolloClient';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ApolloProvider>
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_CLIENT_ID || ""}>
+      <ApolloProvider client={client}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ApolloProvider>
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
 

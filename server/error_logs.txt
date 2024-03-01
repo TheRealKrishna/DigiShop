@@ -1,4 +1,719 @@
 ----------------------------------------------------
+Fri Mar 01 2024 13:18:24 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ');
+    
+    CREATE TABLE IF NOT EXISTS ratings (
+        id INT AUTO_INCREMEN...' at line 10
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 13:08:54 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 8
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 13:08:47 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ');
+    
+    CREATE TABLE IF NOT EXISTS ratings (
+        id INT AUTO_INCREMEN...' at line 10
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 13:08:45 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ');
+    
+    CREATE TABLE IF NOT EXISTS ratings (
+        id INT AUTO_INCREMEN...' at line 10
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 13:08:01 GMT+0530 (India Standard Time)
+Error: ER_CANT_CREATE_TABLE: Can't create table `digishop`.`products` (errno: 150 "Foreign key constraint is incorrectly formed")
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 13:07:33 GMT+0530 (India Standard Time)
+Error: ER_CANT_CREATE_TABLE: Can't create table `digishop`.`products` (errno: 150 "Foreign key constraint is incorrectly formed")
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 13:07:05 GMT+0530 (India Standard Time)
+Error: ER_CANT_CREATE_TABLE: Can't create table `digishop`.`products` (errno: 150 "Foreign key constraint is incorrectly formed")
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 13:06:35 GMT+0530 (India Standard Time)
+Error: ER_CANT_CREATE_TABLE: Can't create table `digishop`.`products` (errno: 150 "Foreign key constraint is incorrectly formed")
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:36:12 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+        id INT AUTO_INCREMENT PRIMARY K...' at line 10
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:35:48 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+        id INT AUTO_INCREMENT PRIMARY K...' at line 10
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:34:06 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+            id INT AUTO_INCREMENT PRIMA...' at line 9
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:34:02 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+...' at line 10
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:33:00 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+            id INT AUTO_INCREMENT PRIMA...' at line 9
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:32:42 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+            id INT AUTO_INCREMENT PRIMA...' at line 9
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:32:41 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+            id INT AUTO_INCREMENT PRIMA...' at line 9
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:32:27 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+            id INT AUTO_INCREMENT PRIMA...' at line 9
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:21:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Fri Mar 01 2024 11:32:25 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS products (
+            id INT AUTO_INCREMENT PRIMA...' at line 9
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:22:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Thu Feb 29 2024 18:40:01 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FOREIGN KEY (seller_id) REFERENCES users(id)
+    )' at line 10
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:29:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Thu Feb 29 2024 12:21:25 GMT+0530 (India Standard Time)
+AggregateError
+    at internalConnectMultiple (node:net:1114:18)
+    at afterConnectMultiple (node:net:1667:5)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:116:18)
+    at dbConnect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:14:9)
+    at Object.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\index.js:9:1)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 28 2024 16:35:40 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'seller_id INT,
+        FOREIGN KEY (seller_id) REFERENCES users(id)
+    )' at line 9
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:29:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 28 2024 16:35:31 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 11
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:29:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 28 2024 16:35:27 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INT,
+        FOREIGN KEY (seller_id) REFERENCES users(id),
+    )' at line 8
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:29:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 28 2024 16:35:04 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(10, 2) NOT NULL,
+        seller_id INT,
+        FOREIGN KEY (seller_id) REFE...' at line 6
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:29:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 28 2024 16:34:20 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'profile VARCHAR(255)
+    )' at line 8
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:29:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Wed Feb 28 2024 16:33:44 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'profile VARCHAR(255)
+    )' at line 8
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:29:13)
+    at Handshake.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Sequence.OkPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Feb 27 2024 14:45:59 GMT+0530 (India Standard Time)
+Error: ER_BAD_FIELD_ERROR: Unknown column 'profile' in 'field list'
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Pool.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Pool.js:199:23)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:109:24
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)----------------------------------------------------
+
+
+
+----------------------------------------------------
 Mon Feb 26 2024 14:44:59 GMT+0530 (India Standard Time)
 AggregateError
     at internalConnectMultiple (node:net:1114:18)

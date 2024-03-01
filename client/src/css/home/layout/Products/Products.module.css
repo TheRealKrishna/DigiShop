@@ -1,0 +1,10 @@
+.productsSection{
+    margin: 2rem;
+}
+
+.products{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 40px;
+}

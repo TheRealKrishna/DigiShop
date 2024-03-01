@@ -13,6 +13,7 @@ import Loader from './components/loaders/Loader';
 import Login from './components/auth/Login';
 import ForgotPassword from './components/auth/ForgotPassword';
 import ResetPassword from './components/auth/ResetPassword';
+import Products from './components/home/layout/Products/Products';
 
 function App() {
   const dispatch = useDispatch()
@@ -44,7 +45,7 @@ function App() {
         theme="light"
       />
       <Routes>
-        <Route path="/" element={<><Navbar /><Home /></>} />
+        <Route path="/" element={<><Navbar /><Home /><Products/></>} />
         <Route path="/auth/signup" element={<Signup />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/forgot-password" element={<ForgotPassword />} />

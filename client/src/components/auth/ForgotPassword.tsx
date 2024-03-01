@@ -1,5 +1,5 @@
 import Styles from "../../css/auth/ForgotPassword.module.css"
-import logoRectangle from "../../assets/logo/Digishop-Logo-Rectangle.png"
+import logoRectangle from "../../assets/logo/logo-rectangle.png"
 import { HiOutlineMail } from "react-icons/hi";
 import { useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
@@ -60,6 +60,9 @@ export default function ForgotPassword() {
         }
     }, [isLoggedIn, navigate]);
 
+    useEffect(()=>{
+        document.title = "DigiShop - Forgot Password"
+    }, [])
 
     return (
         <div className={Styles.forgotPasswordPage}>

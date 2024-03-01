@@ -15,6 +15,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex: 1;
+    padding-block: 10px;
 }
 
 .hamburgerMenu {
@@ -110,7 +111,7 @@
 }
 
 .searchBarContainer:focus-within {
-    border: 2px solid black;
+    box-shadow: 0 0 1px 1px #000000;
 }
 
 .mobileSearchBarContainer {
@@ -120,7 +121,7 @@
     border-radius: 100px;
     background-color: rgb(245, 245, 245);
     padding: 10px 15px;
-    margin-block: 7px;
+    margin-block: 0px;
     width: 100%;
 }
 
@@ -137,7 +138,7 @@
 }
 
 .mobileSearchBarContainer:focus-within {
-    border: 2px solid black;
+    box-shadow: 0 0 1px 1px #000000;
 }
 
 .toggleSearchIcon {
@@ -169,7 +170,7 @@
     }
 
     .navbarContent {
-        padding: 10px 20px;
+        padding: 8px 15px;
     }
 }
 

@@ -1,5 +1,5 @@
 import Styles from "../../css/auth/ResetPassword.module.css"
-import logoRectangle from "../../assets/logo/Digishop-Logo-Rectangle.png"
+import logoRectangle from "../../assets/logo/logo-rectangle.png"
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { PiLockKeyOpen } from "react-icons/pi";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -90,11 +90,14 @@ export default function ResetPassword() {
         }
     }, [credentials])
 
-    useEffect(()=>{
+    useEffect(() => {
         refetch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [window.location.pathname])
 
+    useEffect(() => {
+        document.title = "DigiShop - Reset Password"
+    }, [])
 
     if (loading || !token) {
         return (<Loader />)

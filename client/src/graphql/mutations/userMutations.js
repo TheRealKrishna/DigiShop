@@ -1,32 +1,34 @@
 import { gql } from "@apollo/client";
 
 const SIGN_UP = gql`
-mutation createAccount($name: String!, $email: String!, $password: String!) {
-    createAccount(name: $name, email: $email, password: $password) {
-        id
-        name
-        email
-        auth_token
+    mutation createAccount($name: String!, $email: String!, $password: String!) {
+        createAccount(name: $name, email: $email, password: $password) {
+            auth_token
+        }
     }
-}
 `;
 
 const LOGIN = gql`
-mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-        id
-        name
-        email
-        auth_token
+    mutation login($email: String!, $password: String!) {
+        login(email: $email, password: $password) {
+            auth_token
+        }
     }
-}
+`;
+
+const LOGIN_GOOGLE = gql`
+    mutation loginGoogle {
+        loginGoogle {
+            auth_token
+        }
+    }
 `;
 
 const FORGOT_PASSWORD = gql`
     mutation forgotPassword($email: String!, $reCaptchaToken: String!) {
         forgotPassword(email: $email, reCaptchaToken: $reCaptchaToken) {
-        message
-        success
+            message
+            success
         }
     }
   `
@@ -40,4 +42,4 @@ const CHANGE_PASSWORD = gql`
         }
     `
 
-export { SIGN_UP, LOGIN, FORGOT_PASSWORD, CHANGE_PASSWORD }
+export { SIGN_UP, LOGIN, LOGIN_GOOGLE, FORGOT_PASSWORD, CHANGE_PASSWORD }

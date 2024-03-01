@@ -4,57 +4,67 @@ const errorHandler = require("../../../handlers/error_handler");
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET
 
-const Query = {
+const userQuery = {
     user: (parent, args, context) => {
         return new Promise((resolve, reject) => {
-            const auth_token = context.auth_token
-            if (!auth_token) {
-                return reject(new GraphQLError("Invalid Request!"));
-            }
-            jwt.verify(auth_token, JWT_SECRET, (error, decoded) => {
-                if (error) {
-                    return reject(new GraphQLError("Your session has expired, Please refresh the page!"));
+            try {
+                const auth_token = context.auth_token
+                if (!auth_token) {
+                    return reject(new GraphQLError("Invalid Request!"));
                 }
-                dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, results) => {
+                jwt.verify(auth_token, JWT_SECRET, (error, decoded) => {
                     if (error) {
-                        errorHandler(error);
-                        return reject(new GraphQLError("An Internal Server Error Occurred!"));
+                        return reject(new GraphQLError("Your session has expired, Please refresh the page!"));
                     }
-                    else if (results && results.length > 0) {
-                        if (results.length > 0) {
-                            delete results[0].password
-                            resolve({ ...results[0], auth_token });
-                        } else {
-                            resolve(null);
+                    dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, results) => {
+                        if (error) {
+                            throw new error
                         }
-                    }
-                    else {
-                        return reject(new GraphQLError("User Does Not Exist!"));
-                    }
+                        else if (results && results.length > 0) {
+                            if (results.length > 0) {
+                                delete results[0].password
+                                resolve({ ...results[0], auth_token });
+                            } else {
+                                resolve(null);
+                            }
+                        }
+                        else {
+                            return reject(new GraphQLError("User Does Not Exist!"));
+                        }
+                    })
                 })
-            })
+            }
+            catch (error) {
+                errorHandler(error);
+                return reject(new GraphQLError("An Internal Server Error Occurred!"));
+            }
         })
     },
     resetPasswordTokenVerify: async (parent, args, context) => {
         return new Promise(async (resolve, reject) => {
-            const passwordResetToken = context.passwordresettoken
-            if (!passwordResetToken) {
-                return reject(new GraphQLError("Invalid Request!"));
+            try {
+                const passwordResetToken = context.passwordresettoken
+                if (!passwordResetToken) {
+                    return reject(new GraphQLError("Invalid Request!"));
+                }
+                dbPool.query(`SELECT * FROM users WHERE passwordResetToken = '${passwordResetToken}'`, (error, results) => {
+                    if (error) {
+                        throw new error
+                    }
+                    else if (results && results.length > 0) {
+                        return resolve({ message: "Token Verified!", success: true })
+                    }
+                    else {
+                        return reject(new GraphQLError("Your password changing request is expired!"));
+                    }
+                })
             }
-            dbPool.query(`SELECT * FROM users WHERE passwordResetToken = '${passwordResetToken}'`, (error, results) => {
-                if (error) {
-                    errorHandler(error);
-                    return reject(new GraphQLError("An Internal Server Error Occured"));
-                }
-                else if (results && results.length > 0) {
-                    return resolve({ message: "Token Verified!", success: true })
-                }
-                else {
-                    return reject(new GraphQLError("Your password changing request is expired!"));
-                }
-            })
+            catch (error) {
+                errorHandler(error);
+                return reject(new GraphQLError("An Internal Server Error Occured"));
+            }
         })
     },
 }
 
-module.exports = Query;
+module.exports = userQuery;

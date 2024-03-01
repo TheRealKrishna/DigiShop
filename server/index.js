@@ -29,6 +29,6 @@ app.get('/api', (req, res) => {
     res.send('Backend For DigiShop!');
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 80, () => {
     console.log(`Server Running On http://localhost:${process.env.PORT}`)
 })

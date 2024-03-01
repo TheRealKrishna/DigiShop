@@ -1,5 +1,5 @@
 import Styles from "../../css/auth/Signup.module.css"
-import logoRectangle from "../../assets/logo/Digishop-Logo-Rectangle.png"
+import logoRectangle from "../../assets/logo/logo-rectangle.png"
 import { FaFacebookF, FaGoogle, FaLinkedinIn, FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6";
 import { FiUser } from "react-icons/fi";
@@ -11,7 +11,8 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../redux/slices/loginSlice";
-import { SIGN_UP } from "../../graphql/mutations/userMutations";
+import { LOGIN_GOOGLE, SIGN_UP } from "../../graphql/mutations/userMutations";
+import { useGoogleLogin } from "@react-oauth/google";
 
 export default function Signup() {
     const navigate = useNavigate()
@@ -20,12 +21,48 @@ export default function Signup() {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "" })
     const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
     const [SignUpMutation] = useMutation(SIGN_UP)
+    const [passwordVisibility, setPasswordVisibility] = useState<Boolean>(false)
+    const [loginGoogleMutation] = useMutation(LOGIN_GOOGLE)
 
     const onInputsChange = (e: any) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
-    const [passwordVisibility, setPasswordVisibility] = useState<Boolean>(false)
+    const onGoogleSignup = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            setApiCalling(true)
+            toast.promise(new Promise(async (resolve: Function, reject: Function) => {
+                if (isLoggedIn) {
+                    return reject("Invalid Request!")
+                }
+                const response: any = await loginGoogleMutation({
+                    context: {
+                        headers: {
+                            "access_token": tokenResponse.access_token
+                        }
+                    }
+                })
+                if (!response.errors) {
+                    localStorage.setItem("auth_token", response.data.loginGoogle.auth_token)
+                    dispatch(login(response.data.loginGoogle))
+                    setApiCalling(false)
+                    return resolve()
+                }
+                else {
+                    setApiCalling(false)
+                    return reject(response.errors[0].message)
+                }
+            }),
+                {
+                    pending: 'Creating Account...',
+                    success: 'Logged in successfully!',
+                    error: {
+                        render: (error: any) => error.data
+                    }
+                })
+        },
+    });
+
 
     const onSignUp = (e: any) => {
         e.preventDefault()
@@ -58,6 +95,9 @@ export default function Signup() {
         }
     }, [isLoggedIn, navigate]);
 
+    useEffect(()=>{
+        document.title = "DigiShop - Singup"
+    }, [])
 
     return (
         <div className={Styles.signUpPage}>
@@ -87,10 +127,10 @@ export default function Signup() {
                     <div className={Styles.signUpContent}>
                         <h2>Create Account</h2>
                         <div className={Styles.otherLoginIcons}>
-                            <FaGoogle />
-                            <FaFacebookF />
-                            <FaXTwitter />
-                            <FaLinkedinIn />
+                            <FaGoogle onClick={() => onGoogleSignup()} />
+                            <FaFacebookF onClick={() => toast.error("Facebook login unavailable!")} />
+                            <FaXTwitter onClick={() => toast.error("Twitter login unavailable!")} />
+                            <FaLinkedinIn onClick={() => toast.error("Linkedin login unavailable!")} />
                         </div>
                         <div className={Styles.orText}>OR</div>
                         <form className={Styles.signUpForm} onSubmit={onSignUp}>

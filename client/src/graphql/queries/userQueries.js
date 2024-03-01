@@ -7,6 +7,7 @@ const GET_USER = gql`
       name
       email
       auth_token
+      profile
     }
   }
 `;
