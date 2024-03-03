@@ -10,7 +10,7 @@ import { useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../redux/slices/loginSlice";
+import { login } from "../../redux/slices/userSlice";
 import { LOGIN_GOOGLE, SIGN_UP } from "../../graphql/mutations/userMutations";
 import { useGoogleLogin } from "@react-oauth/google";
 
@@ -19,7 +19,7 @@ export default function Signup() {
     const dispatch = useDispatch()
     const [apiCalling, setApiCalling] = useState(false)
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "" })
-    const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
+    const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
     const [SignUpMutation] = useMutation(SIGN_UP)
     const [passwordVisibility, setPasswordVisibility] = useState<Boolean>(false)
     const [loginGoogleMutation] = useMutation(LOGIN_GOOGLE)

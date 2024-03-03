@@ -9,19 +9,19 @@ import { useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../redux/slices/loginSlice";
+import { login } from "../../redux/slices/userSlice";
 import { LOGIN, LOGIN_GOOGLE } from "../../graphql/mutations/userMutations";
 import { useGoogleLogin } from '@react-oauth/google';
 
 export default function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [apiCalling, setApiCalling] = useState(false)
-    const [credentials, setCredentials] = useState({ email: "", password: "" })
-    const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
-    const [loginMutation] = useMutation(LOGIN)
-    const [loginGoogleMutation] = useMutation(LOGIN_GOOGLE)
-    const [passwordVisibility, setPasswordVisibility] = useState<Boolean>(false)
+    const [apiCalling, setApiCalling] = useState(false);
+    const [credentials, setCredentials] = useState({ email: "", password: "" });
+    const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
+    const [loginMutation] = useMutation(LOGIN);
+    const [loginGoogleMutation] = useMutation(LOGIN_GOOGLE);
+    const [passwordVisibility, setPasswordVisibility] = useState<Boolean>(false);
 
     const onInputsChange = (e: any) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })

@@ -1,36 +1,35 @@
 const dbPool = require("../../../database/dbPool");
 const errorHandler = require("../../../handlers/error_handler")
-const validator = require("email-validator");
-const bcrypt = require("bcryptjs")
 const jwt = require('jsonwebtoken');
 const { GraphQLError } = require('graphql');
 const JWT_SECRET = process.env.JWT_SECRET
-const resetPasswordMail = require("../middleware/resetPasswordMail")
-const randomstring = require("randomstring");
-const axios = require("axios")
 
+const handleError = (error, reject) => {
+    errorHandler(error);
+    reject(new GraphQLError("An Internal Server Error Occurred!"));
+};
 
 const productMutation = {
     addProduct: async (parent, { title, description, price, discountedPrice, thumbnail }, context) => {
         return new Promise(async (resolve, reject) => {
             try {
                 // basic checks
-                if (title.length < 5) {
+                if (title.length < 5) {  // title minimum length 5
                     return reject(new GraphQLError("Product title must have atleast 5 characters!"))
                 }
-                if (description.length < 100) {
+                if (description.length < 100) {  // description minimum length 100
                     return reject(new GraphQLError("Product description must have atleast 100 characters!"))
                 }
-                if (price < 2) {
+                if (price < 2) {  // price minimum 2 ₹
                     return reject(new GraphQLError("The minimum product price should be ₹2!"))
                 }
-                if (discountedPrice < 1) {
+                if (discountedPrice < 1) {  // title minimum length 5
                     return reject(new GraphQLError("The minimum discounted product price should be ₹1!"))
                 }
-                if (discountedPrice >= price) {
+                if (discountedPrice >= price) { // price must be greater
                     return reject(new GraphQLError("Actual product price should be higher than the discounted price!"))
                 }
-                if (!thumbnail) {
+                if (!thumbnail) {  // thumbnail required
                     return reject(new GraphQLError("A Product thumbnail is required!"))
                 }
                 const auth_token = context.auth_token
@@ -41,24 +40,18 @@ const productMutation = {
                     if (error) {
                         return reject(new GraphQLError("Your session has expired, Please refresh the page!"));
                     }
-                    dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, results) => {
+                    dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, users) => {
                         if (error) {
-                            throw error
+                            handleError(error, reject);
                         }
-                        else if (results && results.length > 0) {
+                        else if (users && users.length > 0) {
                             dbPool.query(
-                                `INSERT INTO products (title, description, price, discountedPrice, thumbnail, seller_id) VALUES ('${title}', '${description}', '${price}', '${discountedPrice}', '${thumbnail}', '${results[0].id}')`
+                                `INSERT INTO products (title, description, price, discountedPrice, thumbnail, seller_id) VALUES ('${title}', '${description}', '${price}', '${discountedPrice}', '${thumbnail}', '${users[0].id}')`
                                 , (error, results) => {
                                     if (error) {
-                                        throw error
+                                        handleError(error, reject);
                                     }
-                                    dbPool.query(
-                                        `SELECT * FROM products WHERE id = '${results.insertId}'`, (error, results) => {
-                                            if (error) {
-                                                throw error
-                                            }
-                                            resolve({ ...results[0] })
-                                        })
+                                    return resolve({ id: results.insertId, title, description, price, discountedPrice, thumbnail, seller_id:users[0].id, rating: null, reviews: [] })
                                 })
                         }
                         else {
@@ -68,8 +61,7 @@ const productMutation = {
                 })
             }
             catch (error) {
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occured"));
+                handleError(error, reject);
             }
         })
     },

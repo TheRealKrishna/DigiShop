@@ -8,7 +8,7 @@ import { useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { CDropdown, CDropdownDivider, CDropdownItem, CDropdownMenu, CDropdownToggle } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/slices/loginSlice";
+import { logout } from "../../redux/slices/userSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +17,7 @@ export default function Navbar() {
     const navigate = useNavigate()
     const toggleSearchBar = () => setSearchBarVisibility(!searchBarVisibility)
     const dispatch = useDispatch()
-    const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
+    const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
 
     const handleLogout = async()=>{
         localStorage.removeItem("auth_token")

@@ -4,6 +4,11 @@ const errorHandler = require("../../../handlers/error_handler");
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET
 
+const handleError = (error, reject) => {
+    errorHandler(error);
+    reject(new GraphQLError("An Internal Server Error Occurred!"));
+};
+
 const userQuery = {
     user: (parent, args, context) => {
         return new Promise((resolve, reject) => {
@@ -18,7 +23,7 @@ const userQuery = {
                     }
                     dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, results) => {
                         if (error) {
-                            throw new error
+                            handleError(error, reject);
                         }
                         else if (results && results.length > 0) {
                             if (results.length > 0) {
@@ -35,8 +40,7 @@ const userQuery = {
                 })
             }
             catch (error) {
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occurred!"));
+                handleError(error, reject);
             }
         })
     },
@@ -49,7 +53,7 @@ const userQuery = {
                 }
                 dbPool.query(`SELECT * FROM users WHERE passwordResetToken = '${passwordResetToken}'`, (error, results) => {
                     if (error) {
-                        throw new error
+                        handleError(error, reject);
                     }
                     else if (results && results.length > 0) {
                         return resolve({ message: "Token Verified!", success: true })
@@ -60,8 +64,7 @@ const userQuery = {
                 })
             }
             catch (error) {
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occured"));
+                handleError(error, reject);
             }
         })
     },

@@ -10,6 +10,11 @@ const randomstring = require("randomstring");
 const axios = require("axios")
 
 
+const handleError = (error, reject) => {
+    errorHandler(error);
+    reject(new GraphQLError("An Internal Server Error Occurred!"));
+};
+
 const userMutation = {
     createAccount: async (parent, { name, email, password }) => {
         return new Promise(async (resolve, reject) => {
@@ -24,11 +29,10 @@ const userMutation = {
                 if (!validator.validate(email)) {
                     return reject(new GraphQLError("Please enter a valid email address!"))
                 }
-
                 // checking if user already exist with that email
                 dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, async (error, results) => {
                     if (error) {
-                        throw error
+                        handleError(error, reject);
                     }
                     if (results && results.length > 0) {
                         return reject(new GraphQLError("A user already exists with that email!"))
@@ -39,49 +43,38 @@ const userMutation = {
 
                         // creating a user with those credentials                    
                         dbPool.query(
-                            `INSERT INTO users (name, email, password) VALUES ('${name}', '${email}', '${securePassword}')`
+                            `INSERT INTO users (name, email, password, profile) VALUES ('${name}', '${email}', '${securePassword}', '${process.env.DEFAULT_PROFILE_FOR_USERS}')`
                             , (error, results) => {
                                 if (error) {
-                                    throw error
+                                    handleError(error, reject);
                                 }
-
-                                // making a JWT
                                 const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
-
-                                dbPool.query(
-                                    `SELECT id, name, email, profile FROM users WHERE email = '${email}'`, (error, results) => {
-                                        if (error) {
-                                            throw error
-                                        }
-                                        resolve({ ...results[0], auth_token })
-                                    })
+                                return resolve({ id: results.insertId, name, email, profile: process.env.DEFAULT_PROFILE_FOR_USERS, auth_token })
                             })
                     }
                 })
             }
             catch (error) {
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occurred!"));
+                handleError(error, reject);
             }
         })
     },
+
     login: async (parent, { email, password }) => {
         return new Promise(async (resolve, reject) => {
             try {
                 // basic checks
-                if (email.length < 1) {
+                if (!email) {
                     return reject(new GraphQLError("An Email is required!"))
                 }
-                if (password.length < 1) {
+                if (!password) {
                     return reject(new GraphQLError("A Password is required!"))
                 }
-
                 //check if user exists or not
                 dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, (error, results) => {
                     if (error) {
-                        throw error
+                        handleError(error, reject);
                     }
-
                     else if (results && results.length > 0) {
                         if (!results[0].password) {
                             return reject(new GraphQLError("Invalid Credentials!"));
@@ -92,7 +85,7 @@ const userMutation = {
                         // making a JWT
                         const auth_token = jwt.sign({ id: results[0].id }, JWT_SECRET)
                         delete results[0].password
-                        resolve({ ...results[0], auth_token })
+                        return resolve({ ...results[0], auth_token })
                     }
                     else {
                         return reject(new GraphQLError("Invalid Credentials!"));
@@ -100,8 +93,7 @@ const userMutation = {
                 })
             }
             catch (error) {
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occurred!"));
+                handleError(error, reject);
             }
         })
     },
@@ -121,41 +113,30 @@ const userMutation = {
                     //checking if user exists or not
                     dbPool.query(`SELECT id, name, email, profile FROM users WHERE email = '${email}'`, (error, results) => {
                         if (error) {
-                            throw error
+                            handleError(error, reject);
                         }
                         else if (results && results.length > 0) {
-
                             // making a JWT
                             const auth_token = jwt.sign({ id: results[0].id }, JWT_SECRET)
-
-                            resolve({ ...results[0], auth_token })
+                            return resolve({ ...results[0], auth_token })
                         }
                         else {
                             dbPool.query(
                                 `INSERT INTO users (name, email, profile) VALUES ('${name}', '${email}', '${profile}')`
                                 , (error, results) => {
                                     if (error) {
-                                        throw error
+                                        handleError(error, reject);
                                     }
-
                                     // making a JWT
                                     const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
-
-                                    dbPool.query(
-                                        `SELECT id, name, email, profile FROM users WHERE email = '${email}'`, (error, results) => {
-                                            if (error) {
-                                                throw error
-                                            }
-                                            resolve({ ...results[0], auth_token })
-                                        })
+                                    return resolve({ id: results.insertId, name, email, profile, auth_token })
                                 })
                         }
                     })
                 })
             }
             catch (error) {
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occurred!"));
+                handleError(error, reject);
             }
         })
     },
@@ -166,22 +147,19 @@ const userMutation = {
                 if (!captchaResponse.data.success) {
                     return reject(new GraphQLError("Invalid Captcha Response!"))
                 }
-
-
                 // basic checks
                 if (email.length < 1) {
                     return reject(new GraphQLError("An Email is required!"))
                 }
-
                 dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, (error, results) => {
                     if (error) {
-                        throw error
+                        handleError(error, reject);
                     }
                     else if (results && results.length > 0) {
                         const passwordResetToken = results[0].id + randomstring.generate()
                         dbPool.query(`UPDATE users SET passwordResetToken = '${passwordResetToken}' WHERE email='${email}'`, (error, results) => {
                             if (error) {
-                                throw error
+                                handleError(error, reject);
                             }
                             if (results) {
                                 const success = resetPasswordMail(email, passwordResetToken);
@@ -200,8 +178,7 @@ const userMutation = {
                 })
             }
             catch (error) {
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occured!"));
+                handleError(error, reject);
             }
         })
     },
@@ -209,7 +186,6 @@ const userMutation = {
         return new Promise(async (resolve, reject) => {
             try {
                 const passwordResetToken = context.passwordresettoken
-
                 // basic checks
                 if (password.length < 8) {
                     return reject(new GraphQLError("Password must have atleast 8 characters!"))
@@ -220,21 +196,16 @@ const userMutation = {
 
                 dbPool.query(`SELECT * FROM users WHERE passwordResetToken = '${passwordResetToken}'`, (error, results) => {
                     if (error) {
-                        throw error
+                        handleError(error, reject);
                     }
                     else if (results && results.length > 0) {
                         // making new password hash
                         const securePassword = bcrypt.hashSync(password, 10);
-                        const userEmail = results[0].email
-                        dbPool.query(`UPDATE users SET password = '${securePassword}' WHERE passwordResetToken='${passwordResetToken}'`, (error, results) => {
+                        dbPool.query(`UPDATE users SET password = '${securePassword}', passwordResetToken = NULL WHERE passwordResetToken='${passwordResetToken}'`, (error) => {
                             if (error) {
-                                throw error
+                                handleError(error, reject);
                             }
-                            if (results) {
-                                dbPool.query(`UPDATE users SET passwordResetToken = NULL WHERE email='${userEmail}'`, () => {
-                                    return resolve({ message: "Password changed successfully!", success: true })
-                                })
-                            }
+                            return resolve({ message: "Password changed successfully!", success: true })
                         })
                     }
                     else {
@@ -242,11 +213,10 @@ const userMutation = {
                     }
                 })
             }
-            catch(error){
-                errorHandler(error);
-                return reject(new GraphQLError("An Internal Server Error Occured!"));
+            catch (error) {
+                handleError(error, reject);
             }
-            })
+        })
     }
 };
 

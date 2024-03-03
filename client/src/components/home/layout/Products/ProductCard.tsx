@@ -6,18 +6,30 @@ import { FaStar } from "react-icons/fa";
 export default function ProductCard({ product }: any) {
   return (
     <div className={Styles.productCard}>
-      <div className={Styles.productImageContainer}>
-        <img src={product.thumbnail} alt="productThumbnail" />
-      </div>
-      <div className={Styles.productInfo}>
-        <h4>{product.title}</h4>
-        <div className={Styles.priceContainer}>
-          <h5>₹{product.price * 80}</h5>
-          <del>₹{((product.price * 80) + (product.price * (product.discountPercentage / 100) * 80)).toFixed(0).slice(0, -2) + 99}</del>
+      <div>
+        <div className={Styles.productImageContainer}>
+          <img src={product.thumbnail} alt="productThumbnail" />
         </div>
+        <h3 className={Styles.productTitle}>{product.title}</h3>
         <div className={Styles.ratingContainer}>
-          <FaStar style={{ color: "#ffcf00" }} />
-          <p>{product.rating.toFixed(1)}</p>
+          {
+            product.rating &&
+            <>
+              <FaStar style={{ color: "#ffcf00" }} />
+              <p>{product.rating.toFixed(1)}</p>
+            </>
+          }
+        </div>
+      </div>
+      <div className={Styles.product}>
+        <div className={Styles.productInfo}>
+          <div className={Styles.priceContainer}>
+            <h5>₹{product.discountedPrice}</h5>
+            <p>M.R.P: <del>₹{product.price}</del></p>
+          </div>
+        </div>
+        <div className={Styles.purchaseContainer}>
+          <button className={Styles.addToCartButton}>Add To Cart</button>
         </div>
       </div>
     </div>

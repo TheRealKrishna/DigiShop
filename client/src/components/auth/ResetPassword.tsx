@@ -16,7 +16,7 @@ export default function ResetPassword() {
     const navigate = useNavigate()
     const [apiCalling, setApiCalling] = useState(false)
     const [credentials, setCredentials] = useState({ password: "", confirmPassword: "" })
-    const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
+    const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const token = searchParams.get('token');

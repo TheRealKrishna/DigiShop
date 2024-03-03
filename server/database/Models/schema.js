@@ -6,6 +6,8 @@ const schema = `
         password VARCHAR(255),
         passwordResetToken VARCHAR(255),
         profile VARCHAR(255) DEFAULT ''
+        cart_id INT,
+        FOREIGN KEY (cart_id) REFERENCES cart(id)
     );
     
     CREATE TABLE IF NOT EXISTS products (
@@ -19,7 +21,7 @@ const schema = `
         FOREIGN KEY (seller_id) REFERENCES users(id)
     );
     
-    CREATE TABLE IF NOT EXISTS ratings (
+    CREATE TABLE IF NOT EXISTS reviews (
         id INT AUTO_INCREMENT PRIMARY KEY,
         product_id INT,
         reviewer_id INT,
@@ -28,6 +30,15 @@ const schema = `
         description TEXT,
         FOREIGN KEY (product_id) REFERENCES products(id),
         FOREIGN KEY (reviewer_id) REFERENCES users(id)
+    );
+    
+    CREATE TABLE IF NOT EXISTS cart (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        product_id INT,
+        user_id INT,
+        quantity INT,
+        FOREIGN KEY (product_id) REFERENCES products(id),
+        FOREIGN KEY (user_id) REFERENCES users(id)
     );
 `;
 

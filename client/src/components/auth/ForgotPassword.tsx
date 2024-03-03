@@ -14,7 +14,7 @@ export default function ForgotPassword() {
     const navigate = useNavigate()
     const [apiCalling, setApiCalling] = useState(false)
     const [credentials, setCredentials] = useState({ email: "" })
-    const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
+    const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
     const [forgotPasswordMutation] = useMutation(FORGOT_PASSWORD)
     const recaptchaRef: any = useRef()
     const [reCaptchaKey, setReCaptchaKey] = useState('');

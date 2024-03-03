@@ -4,6 +4,5 @@ const productQueries = `
         products: [Product]
     }
     `
-// users: [User!]!
 
 module.exports = productQueries;
