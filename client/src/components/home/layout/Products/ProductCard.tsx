@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from "../../../../css/home/layout/Products/ProductCard.module.css"
 import { FaStar } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 
 export default function ProductCard({ product }: any) {
+  const user = useSelector((state: any) => state.user.user);
+  
+
   return (
     <div className={Styles.productCard}>
       <div>
@@ -29,7 +33,16 @@ export default function ProductCard({ product }: any) {
           </div>
         </div>
         <div className={Styles.purchaseContainer}>
-          <button className={Styles.addToCartButton}>Add To Cart</button>
+          {
+            user.cart.cartItems.some((cartItem: any) => cartItem.id === product.id) ?
+              <div className={Styles.purchaseInQuantityContainer}>
+                <button className={Styles.addToCartButton} style={{inlineSize: "35px"}}> - </button>
+                  <p>{user.cart.cartItems[0].quantity}</p>
+                <button className={Styles.addToCartButton} style={{inlineSize: "35px"}}> + </button>
+              </div>
+              :
+              <button className={Styles.addToCartButton}>Add To Cart</button>
+          }
         </div>
       </div>
     </div>

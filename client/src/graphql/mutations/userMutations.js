@@ -3,7 +3,25 @@ import { gql } from "@apollo/client";
 const SIGN_UP = gql`
     mutation createAccount($name: String!, $email: String!, $password: String!) {
         createAccount(name: $name, email: $email, password: $password) {
-            auth_token
+          id
+          name
+          email
+          auth_token
+          profile
+          cart {
+            cartItems {
+              id
+              title
+              description
+              price
+              discountedPrice
+              thumbnail
+              seller_id
+              rating
+              quantity
+            }
+            total
+          }
         }
     }
 `;
@@ -11,15 +29,51 @@ const SIGN_UP = gql`
 const LOGIN = gql`
     mutation login($email: String!, $password: String!) {
         login(email: $email, password: $password) {
+            id
+            name
+            email
             auth_token
-        }
+            profile
+            cart {
+              cartItems {
+                id
+                title
+                description
+                price
+                discountedPrice
+                thumbnail
+                seller_id
+                rating
+                quantity
+              }
+              total
+            }
+          }
     }
 `;
 
 const LOGIN_GOOGLE = gql`
     mutation loginGoogle {
         loginGoogle {
-            auth_token
+          id
+          name
+          email
+          auth_token
+          profile
+          cart {
+            cartItems {
+              id
+              title
+              description
+              price
+              discountedPrice
+              thumbnail
+              seller_id
+              rating
+              quantity
+            }
+            total
+          }
         }
     }
 `;

@@ -8,6 +8,20 @@ const GET_USER = gql`
       email
       auth_token
       profile
+      cart {
+        cartItems {
+          id
+          title
+          description
+          price
+          discountedPrice
+          thumbnail
+          seller_id
+          rating
+          quantity
+        }
+        total
+      }
     }
   }
 `;

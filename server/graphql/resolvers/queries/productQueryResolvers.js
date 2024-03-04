@@ -50,11 +50,13 @@ const productQuery = {
                         return handleError(error, reject);
                     }
                     else if (products && products.length > 0) {
-                        const product = { ...products[0] };
+                        const product = products[0];
                         product.reviews = JSON.parse(product.reviews);
-                        if (!product.reviews[0].id) {
-                            product.reviews = []
-                        }
+                        product.reviews.forEach((review, i) => {
+                            if (!review.id) {
+                                product.reviews.splice(i, 1);
+                            }
+                        })
                         resolve(product);
                     }
                     else {
@@ -98,18 +100,20 @@ const productQuery = {
                 users u ON r.reviewer_id = u.id
             GROUP BY 
                 p.id;
-                `, (error, results) => {
+                `, (error, products) => {
                     if (error) {
                         return handleError(error, reject);
                     }
-                    else if (results) {
-                        results.forEach(result => {
-                            result.reviews = JSON.parse(result.reviews);
-                            if (!result.reviews[0].id) {
-                                result.reviews = []
-                            }
+                    else if (products) {
+                        products.forEach((product, i) => {
+                            products[i].reviews = JSON.parse(product.reviews);
+                            products[i].reviews.forEach((review, j) => {
+                                if (!review.id) {
+                                    products[i].reviews.splice(j, 1);
+                                }
+                            })
                         })
-                        return resolve(results);
+                        return resolve(products);
                     }
                     else {
                         return reject(new GraphQLError("Products Does Not Exist!"));

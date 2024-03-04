@@ -43,8 +43,20 @@ const typeDefs = `
   }
   
   type Cart{
-    products: [Product]
+    cartItems: [CartItem]
     total: Int
+  }
+
+  type CartItem{
+    id: ID
+    title: String
+    description: String
+    price: Float
+    discountedPrice: Float
+    thumbnail: String
+    seller_id: ID
+    rating: Float
+    quantity: Int
   }
 
   ${userQueries}
