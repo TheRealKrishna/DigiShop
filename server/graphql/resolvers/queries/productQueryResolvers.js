@@ -4,7 +4,7 @@ const errorHandler = require("../../../handlers/error_handler");
 
 const handleError = (error, reject) => {
     errorHandler(error);
-    reject(new GraphQLError("An Internal Server Error Occurred!"));
+    return reject(new GraphQLError("An Internal Server Error Occurred!"));
 };
 
 const productQuery = {
@@ -47,7 +47,7 @@ const productQuery = {
                 p.id;
                     `, (error, products) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     else if (products && products.length > 0) {
                         const product = { ...products[0] };
@@ -63,7 +63,7 @@ const productQuery = {
                 });
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         });
     },
@@ -100,7 +100,7 @@ const productQuery = {
                 p.id;
                 `, (error, results) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     else if (results) {
                         results.forEach(result => {
@@ -117,7 +117,7 @@ const productQuery = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },

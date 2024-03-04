@@ -12,6 +12,7 @@ const typeDefs = `
     email: String
     auth_token: String
     profile: String
+    cart: Cart
   }
 
   type booleanResponse {
@@ -42,17 +43,15 @@ const typeDefs = `
   }
   
   type Cart{
-    id: ID
-    product_id: ID
-    user_id: ID
-    quantity: Int
+    products: [Product]
+    total: Int
   }
 
   ${userQueries}
-  ${userMutations}
-  ${reviewQueries}
-
   ${productQueries}
+  ${reviewQueries}
+  
+  ${userMutations}
   ${productMutations}
   ${reviewMutations}
 `;

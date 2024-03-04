@@ -12,7 +12,7 @@ const axios = require("axios")
 
 const handleError = (error, reject) => {
     errorHandler(error);
-    reject(new GraphQLError("An Internal Server Error Occurred!"));
+    return reject(new GraphQLError("An Internal Server Error Occurred!"));
 };
 
 const userMutation = {
@@ -32,7 +32,7 @@ const userMutation = {
                 // checking if user already exist with that email
                 dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, async (error, results) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     if (results && results.length > 0) {
                         return reject(new GraphQLError("A user already exists with that email!"))
@@ -46,7 +46,7 @@ const userMutation = {
                             `INSERT INTO users (name, email, password, profile) VALUES ('${name}', '${email}', '${securePassword}', '${process.env.DEFAULT_PROFILE_FOR_USERS}')`
                             , (error, results) => {
                                 if (error) {
-                                    handleError(error, reject);
+                                    return handleError(error, reject);
                                 }
                                 const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
                                 return resolve({ id: results.insertId, name, email, profile: process.env.DEFAULT_PROFILE_FOR_USERS, auth_token })
@@ -55,7 +55,7 @@ const userMutation = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },
@@ -73,7 +73,7 @@ const userMutation = {
                 //check if user exists or not
                 dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, (error, results) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     else if (results && results.length > 0) {
                         if (!results[0].password) {
@@ -93,7 +93,7 @@ const userMutation = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },
@@ -113,7 +113,7 @@ const userMutation = {
                     //checking if user exists or not
                     dbPool.query(`SELECT id, name, email, profile FROM users WHERE email = '${email}'`, (error, results) => {
                         if (error) {
-                            handleError(error, reject);
+                            return handleError(error, reject);
                         }
                         else if (results && results.length > 0) {
                             // making a JWT
@@ -125,7 +125,7 @@ const userMutation = {
                                 `INSERT INTO users (name, email, profile) VALUES ('${name}', '${email}', '${profile}')`
                                 , (error, results) => {
                                     if (error) {
-                                        handleError(error, reject);
+                                        return handleError(error, reject);
                                     }
                                     // making a JWT
                                     const auth_token = jwt.sign({ id: results.insertId }, JWT_SECRET)
@@ -136,7 +136,7 @@ const userMutation = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },
@@ -153,13 +153,13 @@ const userMutation = {
                 }
                 dbPool.query(`SELECT * FROM users WHERE email = '${email}'`, (error, results) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     else if (results && results.length > 0) {
                         const passwordResetToken = results[0].id + randomstring.generate()
                         dbPool.query(`UPDATE users SET passwordResetToken = '${passwordResetToken}' WHERE email='${email}'`, (error, results) => {
                             if (error) {
-                                handleError(error, reject);
+                                return handleError(error, reject);
                             }
                             if (results) {
                                 const success = resetPasswordMail(email, passwordResetToken);
@@ -178,7 +178,7 @@ const userMutation = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },
@@ -196,14 +196,14 @@ const userMutation = {
 
                 dbPool.query(`SELECT * FROM users WHERE passwordResetToken = '${passwordResetToken}'`, (error, results) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     else if (results && results.length > 0) {
                         // making new password hash
                         const securePassword = bcrypt.hashSync(password, 10);
                         dbPool.query(`UPDATE users SET password = '${securePassword}', passwordResetToken = NULL WHERE passwordResetToken='${passwordResetToken}'`, (error) => {
                             if (error) {
-                                handleError(error, reject);
+                                return handleError(error, reject);
                             }
                             return resolve({ message: "Password changed successfully!", success: true })
                         })
@@ -214,10 +214,89 @@ const userMutation = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
-    }
+    },
+    updateUserCart: async (parent, { product_id, quantity }, context) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                // basic checks
+                if (!product_id) {  // a product id is necessary
+                    return reject(new GraphQLError("Invalid Product Id!"))
+                }
+                if (typeof (quantity) !== 'number') {
+                    return reject(new GraphQLError("Invalid Quantity!"))
+                }
+                const auth_token = context.auth_token
+                if (!auth_token) {
+                    return reject(new GraphQLError("Invalid Request!"));
+                }
+                jwt.verify(auth_token, JWT_SECRET, (error, decoded) => {
+                    if (error) {
+                        return reject(new GraphQLError("Your session has expired, Please refresh the page!"));
+                    }
+                    dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, users) => {
+                        if (error) {
+                            return handleError(error, reject);
+                        }
+                        else if (users && users.length > 0) {
+                            const user = users[0];
+                            dbPool.query(`SELECT * FROM products WHERE id = '${product_id}'`, (error, products) => {
+                                if (error) {
+                                    return handleError(error, reject);
+                                }
+                                else if (products && products.length > 0) {
+                                    const product = products[0]
+                                    //check if product already exist in cart!
+                                    dbPool.query(`SELECT * FROM cart WHERE product_id = '${product.id}' AND user_id = '${user.id}'`, (error, results) => {
+                                        if (error) {
+                                            return handleError(error, reject);
+                                        }
+                                        else if (results && results.length > 0) {
+                                            if (quantity < 1) {
+                                                dbPool.query(`DELETE FROM cart WHERE product_id = '${product.id}' AND user_id = '${user.id}'`, (error) => {
+                                                    if (error) {
+                                                        return handleError(error, reject);
+                                                    }
+                                                    return resolve({ success: true, message: "Cart Successfully Updated!" });
+                                                })
+                                            }
+                                            else {
+                                                dbPool.query(`UPDATE cart SET quantity = ${quantity} WHERE product_id = '${product.id}' AND user_id = '${user.id}'`, (error) => {
+                                                    if (error) {
+                                                        return handleError(error, reject);
+                                                    }
+                                                    return resolve({ success: true, message: "Cart Successfully Updated!" });
+                                                })
+                                            }
+                                        }
+                                        else {
+                                            dbPool.query(`INSERT INTO cart (product_id, user_id, quantity) VALUES ('${product.id}', '${user.id}', ${quantity})`, (error) => {
+                                                if (error) {
+                                                    return handleError(error, reject);
+                                                }
+                                                return resolve({ success: true, message: "Cart Successfully Updated!" });
+                                            })
+                                        }
+                                    })
+                                }
+                                else {
+                                    return reject(new GraphQLError("Product Does Not Exist!"));
+                                }
+                            })
+                        }
+                        else {
+                            return reject(new GraphQLError("User Does Not Exist!"));
+                        }
+                    })
+                })
+            }
+            catch (error) {
+                return handleError(error, reject);
+            }
+        })
+    },
 };
 
 module.exports = userMutation;

@@ -5,6 +5,7 @@ const userMutations = `
     loginGoogle: User
     forgotPassword(email:String!, reCaptchaToken:String!): booleanResponse
     changePassword(password: String!, confirmPassword: String!): booleanResponse
+    updateUserCart(product_id: ID!, quantity: Int!): booleanResponse
   }
 `;
 

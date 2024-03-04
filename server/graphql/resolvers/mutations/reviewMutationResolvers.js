@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 const handleError = (error, reject) => {
     errorHandler(error);
-    reject(new GraphQLError("An Internal Server Error Occurred!"));
+    return reject(new GraphQLError("An Internal Server Error Occurred!"));
 };
 
 const reviewMutation = {
@@ -36,18 +36,18 @@ const reviewMutation = {
                     }
                     dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, users) => {
                         if (error) {
-                            handleError(error, reject);
+                            return handleError(error, reject);
                         }
                         else if (users && users.length > 0) {
                             const user = users[0];
                             dbPool.query(`SELECT * FROM products WHERE id = '${product_id}'`, (error, products) => {
                                 if (error) {
-                                    handleError(error, reject);
+                                    return handleError(error, reject);
                                 }
                                 else if (products && products.length > 0) {
                                     dbPool.query(`INSERT INTO reviews (product_id, reviewer_id, title, description, rating) VALUES ('${product_id}', '${user.id}', '${title}', '${description}', '${rating}')`, (error, results) => {
                                         if (error) {
-                                            handleError(error, reject);
+                                            return handleError(error, reject);
                                         }
                                         resolve({ id: results.insertId, product_id, reviewer_id: user.id, title, description, rating, reviewer_name: user.name });
                                     });
@@ -64,7 +64,7 @@ const reviewMutation = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },

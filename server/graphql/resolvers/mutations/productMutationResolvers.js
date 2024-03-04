@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 const handleError = (error, reject) => {
     errorHandler(error);
-    reject(new GraphQLError("An Internal Server Error Occurred!"));
+    return reject(new GraphQLError("An Internal Server Error Occurred!"));
 };
 
 const productMutation = {
@@ -42,14 +42,14 @@ const productMutation = {
                     }
                     dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, users) => {
                         if (error) {
-                            handleError(error, reject);
+                            return handleError(error, reject);
                         }
                         else if (users && users.length > 0) {
                             dbPool.query(
                                 `INSERT INTO products (title, description, price, discountedPrice, thumbnail, seller_id) VALUES ('${title}', '${description}', '${price}', '${discountedPrice}', '${thumbnail}', '${users[0].id}')`
                                 , (error, results) => {
                                     if (error) {
-                                        handleError(error, reject);
+                                        return handleError(error, reject);
                                     }
                                     return resolve({ id: results.insertId, title, description, price, discountedPrice, thumbnail, seller_id:users[0].id, rating: null, reviews: [] })
                                 })
@@ -61,7 +61,7 @@ const productMutation = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },

@@ -4,7 +4,7 @@ const errorHandler = require("../../../handlers/error_handler");
 
 const handleError = (error, reject) => {
     errorHandler(error);
-    reject(new GraphQLError("An Internal Server Error Occurred!"));
+    return reject(new GraphQLError("An Internal Server Error Occurred!"));
 };
 
 const reviewQuery = {
@@ -21,7 +21,7 @@ const reviewQuery = {
                     WHERE r.id = '${id}'
                 `, (error, review) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     else if (review && review.length > 0) {
                         resolve(review[0]);
@@ -32,7 +32,7 @@ const reviewQuery = {
                 });
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         });
     },
@@ -49,12 +49,12 @@ const reviewQuery = {
                     WHERE r.product_id = '${id}'
                 `, (error, reviews) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     resolve(reviews);
                 });
             } catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         });
     },

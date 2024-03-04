@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 const handleError = (error, reject) => {
     errorHandler(error);
-    reject(new GraphQLError("An Internal Server Error Occurred!"));
+    return reject(new GraphQLError("An Internal Server Error Occurred!"));
 };
 
 const userQuery = {
@@ -23,15 +23,12 @@ const userQuery = {
                     }
                     dbPool.query(`SELECT * FROM users WHERE id = '${decoded.id}'`, (error, results) => {
                         if (error) {
-                            handleError(error, reject);
+                            return handleError(error, reject);
                         }
                         else if (results && results.length > 0) {
-                            if (results.length > 0) {
-                                delete results[0].password
-                                resolve({ ...results[0], auth_token });
-                            } else {
-                                resolve(null);
-                            }
+                            delete results[0].password
+                            resolve({ ...results[0], auth_token });
+
                         }
                         else {
                             return reject(new GraphQLError("User Does Not Exist!"));
@@ -40,7 +37,7 @@ const userQuery = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },
@@ -53,7 +50,7 @@ const userQuery = {
                 }
                 dbPool.query(`SELECT * FROM users WHERE passwordResetToken = '${passwordResetToken}'`, (error, results) => {
                     if (error) {
-                        handleError(error, reject);
+                        return handleError(error, reject);
                     }
                     else if (results && results.length > 0) {
                         return resolve({ message: "Token Verified!", success: true })
@@ -64,7 +61,7 @@ const userQuery = {
                 })
             }
             catch (error) {
-                handleError(error, reject);
+                return handleError(error, reject);
             }
         })
     },
