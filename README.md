@@ -2,7 +2,7 @@
 </code></div></div></pre></li><li><p>Navigate to the project directory:</p><pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash"><span class="hljs-built_in">cd</span> DigiShop
 </code></div></div></pre></li><li><p>Install dependencies for both backend and frontend:</p><pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash"><span class="hljs-built_in">cd</span> server
 npm install
-<span class="hljs-built_in">cd</span> client
+<span class="hljs-built_in">cd</span>../client
 npm install
 </code></div></div></pre></li><li><p>Set up the environment variables as described above.</p></li><li><p>Start the backend server:</p><pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash"><span class="hljs-built_in">cd</span> server
 node index.js
