@@ -4,8 +4,16 @@
 npm install
 <span class="hljs-built_in">cd</span> ../client
 npm install
-</code></div></div></pre></li><li><p>Set up the environment variables as described above.</p></li><li><p>Start the backend server:</p><pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash"><span class="hljs-built_in">cd</span> server
+</code></div></div></pre></li>
+
+<li><p>Set up the environment variables as described above.</p></li>
+
+<li><p>Open two seperate terminals for client and server.</p></li>
+
+<li><p>Start the backend server:</p><pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash"><span class="hljs-built_in">cd</span> server
 node index.js
-</code></div></div></pre></li><li><p>Start the frontend development server:</p><pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash"><span class="hljs-built_in">cd</span> client
+</code></div></div></pre></li>
+
+<li><p>Start the frontend development server:</p><pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash"><span class="hljs-built_in">cd</span> client
 npm start
 </code></div></div></pre></li><li><p>Access the application in your browser at the specified URL.</p></li></ol><h2>Contributing 🎉</h2><p>We welcome contributions to improve and enhance the functionality of our DigiShop ecommerce website. If you'd like to contribute, please follow these steps:</p><ol><li>Fork the repository on GitHub.</li><li>Make your changes in a feature branch.</li><li>Submit a pull request detailing your changes.</li></ol><h2>License 📄</h2><p>This project is licensed under the <a target="_new">MIT License</a>. Feel free to use, modify, and distribute the code as per the terms of the license.</p><p>Thank you for using our DigiShop ecommerce website! If you have any questions or feedback, please don't hesitate to contact us. 🚀</p>
