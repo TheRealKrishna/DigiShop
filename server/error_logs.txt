@@ -1,4 +1,106 @@
 ----------------------------------------------------
+Tue Mar 05 2024 15:57:10 GMT+0530 (India Standard Time)
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'll enjoy a clear and vivid display of all your notifications, messages, and f...' at line 1
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Pool.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Pool.js:199:23)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\productMutationResolvers.js:48:36)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)
+    at Query.EofPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:133:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 05 2024 12:09:32 GMT+0530 (India Standard Time)
+ReferenceError: auth_token is not defined
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:472:16
+    at new Promise (<anonymous>)
+    at Object.updateCart (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:456:10)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:377:22
+    at promiseReduce (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\jsutils\promiseReduce.js:23:9)
+    at executeFieldsSerially (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:373:43)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:347:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 05 2024 12:09:32 GMT+0530 (India Standard Time)
+ReferenceError: auth_token is not defined
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:472:16
+    at new Promise (<anonymous>)
+    at Object.updateCart (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:456:10)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:377:22
+    at promiseReduce (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\jsutils\promiseReduce.js:23:9)
+    at executeFieldsSerially (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:373:43)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:347:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 05 2024 12:09:28 GMT+0530 (India Standard Time)
+ReferenceError: auth_token is not defined
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:472:16
+    at new Promise (<anonymous>)
+    at Object.updateCart (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:456:10)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:377:22
+    at promiseReduce (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\jsutils\promiseReduce.js:23:9)
+    at executeFieldsSerially (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:373:43)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:347:14)
+    at execute (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:136:20)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Mon Mar 04 2024 19:14:15 GMT+0530 (India Standard Time)
+Error: ER_WRONG_PARAMCOUNT_TO_NATIVE_FCT: Incorrect parameter count in the call to native function 'IFNULL'
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Pool.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Pool.js:199:23)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:74:24
+    at new Promise (<anonymous>)
+    at Object.login (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:64:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:377:22
+    at promiseReduce (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\jsutils\promiseReduce.js:23:9)
+    at executeFieldsSerially (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:373:43)
+    at executeOperation (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:347:14)----------------------------------------------------
+
+
+
+----------------------------------------------------
 Sun Mar 03 2024 21:27:15 GMT+0530 (India Standard Time)
 Error: ER_NO_SUCH_TABLE: Table 'digishop.users' doesn't exist
     at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)

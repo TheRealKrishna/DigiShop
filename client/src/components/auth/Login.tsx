@@ -39,10 +39,12 @@ export default function Login() {
                         headers: {
                             "access_token": tokenResponse.access_token
                         }
-                    }
+                    },
+                    variables: {cart: localStorage.getItem("cart")}
                 })
                 if (!response.errors) {
                     localStorage.setItem("auth_token", response.data.loginGoogle.auth_token)
+                    localStorage.removeItem("cart")
                     dispatch(login(response.data.loginGoogle))
                     setApiCalling(false)
                     return resolve()
@@ -58,6 +60,9 @@ export default function Login() {
                     error: {
                         render: (error: any) => error.data
                     }
+                },
+                {
+                    toastId:"loginToast"
                 })
         },
     });
@@ -72,6 +77,7 @@ export default function Login() {
             const response: any = await loginMutation({ variables: credentials })
             if (!response.errors) {
                 localStorage.setItem("auth_token", response.data.login.auth_token)
+                localStorage.removeItem("cart")
                 dispatch(login(response.data.login))
                 setApiCalling(false)
                 return resolve()
@@ -87,6 +93,9 @@ export default function Login() {
                 error: {
                     render: (error: any) => error.data
                 }
+            },
+            {
+                toastId:"loginToast"
             })
     }
 

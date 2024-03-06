@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const SIGN_UP = gql`
-    mutation createAccount($name: String!, $email: String!, $password: String!) {
-        createAccount(name: $name, email: $email, password: $password) {
+    mutation createAccount($name: String!, $email: String!, $password: String!, $cart: String) {
+        createAccount(name: $name, email: $email, password: $password, cart: $cart) {
           id
           name
           email
@@ -10,14 +10,7 @@ const SIGN_UP = gql`
           profile
           cart {
             cartItems {
-              id
-              title
-              description
-              price
-              discountedPrice
-              thumbnail
-              seller_id
-              rating
+              product_id
               quantity
             }
             total
@@ -36,14 +29,7 @@ const LOGIN = gql`
             profile
             cart {
               cartItems {
-                id
-                title
-                description
-                price
-                discountedPrice
-                thumbnail
-                seller_id
-                rating
+                product_id
                 quantity
               }
               total
@@ -53,8 +39,8 @@ const LOGIN = gql`
 `;
 
 const LOGIN_GOOGLE = gql`
-    mutation loginGoogle {
-        loginGoogle {
+    mutation loginGoogle($cart: String) {
+        loginGoogle(cart: $cart) {
           id
           name
           email
@@ -62,14 +48,7 @@ const LOGIN_GOOGLE = gql`
           profile
           cart {
             cartItems {
-              id
-              title
-              description
-              price
-              discountedPrice
-              thumbnail
-              seller_id
-              rating
+              product_id
               quantity
             }
             total
@@ -96,4 +75,13 @@ const CHANGE_PASSWORD = gql`
         }
     `
 
-export { SIGN_UP, LOGIN, LOGIN_GOOGLE, FORGOT_PASSWORD, CHANGE_PASSWORD }
+const UPDATE_CART = gql`
+  mutation updateCart($productId: ID!, $quantity: Int!) {
+    updateCart(product_id: $productId, quantity: $quantity) {
+      success
+      message
+    }
+  }
+`
+
+export { SIGN_UP, LOGIN, LOGIN_GOOGLE, FORGOT_PASSWORD, CHANGE_PASSWORD, UPDATE_CART }

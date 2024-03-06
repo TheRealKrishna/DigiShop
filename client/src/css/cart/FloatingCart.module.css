@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+.floatingCartContainer {
+  padding: 10px 20px;
+  min-height: 170px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.floatingCartHeading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.floatingCartHeading h5 {
+  font-size: 15px;
+  font-family: "Kanit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.floatingCartHeading a {
+  color: black;
+  text-decoration: none;
+}
+
+.floatingCartHeading a:hover {
+  text-decoration: underline;
+}
+
+.floatingCartTotalContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.floatingCartTotalContainer h5 {
+  font-size: 15px;
+  font-family: "Kanit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.noProductsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noProductsContainer h6 {
+  color: gray;
+}
+
+.cartProductsContainer {
+  max-height: 60vh;
+  overflow-y: scroll;
+  padding: 0px;
+  padding-right: 2px;
+}
+
+.cartProductsContainer::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50%;
+}
+
+.cartProductsContainer::-webkit-scrollbar-thumb {
+  background: rgb(199, 199, 199);
+  border-radius: 55px;
+}
+
+.cartProductsContainer::-webkit-scrollbar-thumb:hover {
+  background: #969696;
+}
+
+
+/* .floatingCartProduct{
+
+} */
+
+.floatingCartProductContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 10px;
+}
+
+.floatingCartProductTexts{
+  width: 100%;
+}
+
+.floatingCartProductTitle{
+  font-weight: 600;
+  padding: 0px;
+  margin: 0px;
+}
+
+.floatingCartProductImageContainer{
+  width: 70px;
+}
+
+.floatingCartProductImageContainer img{
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+
+.floatingCartProductInfo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.priceContainer p:nth-child(1) {
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.priceContainer p:nth-child(2) {
+  font-size: 12px;
+  margin: 0px;
+  padding: 0px;
+  white-space: nowrap;
+}
+
+.floatingCartProductQuantityContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  box-shadow: inset 0px 0px 0px 1px #000000;
+  border-radius: 12px;
+  margin-right: 25px;
+}
+
+.addToCartButton {
+  background-color: rgb(29, 29, 29);
+  color: white;
+  border: none;
+  padding: 4px 5px;
+  border-radius: 10px;
+  font-family: Verdana, sans-serif;
+  white-space: nowrap;
+}
+
+.floatingCartProductQuantityContainer p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.floatingCartProductQuantityContainer button:nth-child(1) {
+  inline-size: 35px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.floatingCartProductQuantityContainer button:nth-child(3) {
+  inline-size: 35px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+
+
+.floatingCartButtonContainer{
+  margin-top: 5px;
+}
+
+.checkOutButton {
+  background-color: rgb(29, 29, 29);
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  width: 100%;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: nowrap;
+}
+
+.checkOutButton:hover {
+  background-color: rgb(39, 39, 39);
+}
+
+
+.createAccountButton {
+  background-color: rgb(34, 0, 136);
+  color: white;
+  padding: 7px 10px;
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: nowrap;
+}
+
+.createAccountButton:hover {
+  background-color: rgb(14, 0, 57);
+}
+
+@media (max-width:322px) {
+  .floatingCartContainer{
+    padding-inline: 5px;
+  }
+}

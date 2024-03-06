@@ -16,11 +16,18 @@ import ResetPassword from './components/auth/ResetPassword';
 import Products from './components/home/layout/Products/Products';
 import { GET_PRODUCTS } from './graphql/queries/productQueries';
 import { setProducts } from './redux/slices/productsSlice';
+import { useEffect } from 'react';
 
 function App() {
   const dispatch = useDispatch()
-  const { loading: userLoading, error: userError, data: userData } = useQuery(GET_USER);
-  const { loading: productsLoading, error: productsError, data: productsData } = useQuery(GET_PRODUCTS);
+  const { loading: userLoading, error: userError, data: userData, refetch: refetchUser } = useQuery(GET_USER);
+  const { loading: productsLoading, error: productsError, data: productsData, refetch: refetchProducts } = useQuery(GET_PRODUCTS);
+
+  useEffect(() => {
+    refetchUser()
+    refetchProducts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.location.pathname])
 
   if (userLoading || productsLoading) {
     return (<Loader />)
@@ -32,10 +39,11 @@ function App() {
     if (!userError) {
       dispatch(login(userData.user))
     }
-    if(!productsError){
+    if (!productsError) {
       dispatch(setProducts(productsData.products))
     }
   }
+
   return (
     <Router>
       <ToastContainer

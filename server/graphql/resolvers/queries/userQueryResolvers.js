@@ -26,30 +26,26 @@ const userQuery = {
                     u.*,
                     CONCAT(
                         '{ "cartItems": ',
-                        '[',
-                        GROUP_CONCAT(
-                            DISTINCT JSON_OBJECT(
-                                'id', p.id,
-                                'title', p.title,
-                                'description', p.description,
-                                'price', p.price,
-                                'discountedPrice', p.discountedPrice,
-                                'thumbnail', p.thumbnail,
-                                'seller_id', p.seller_id,
-                                'rating', (
-                                    SELECT AVG(rating)
-                                    FROM reviews
-                                    WHERE product_id = p.id
-                                ),
-                                'quantity', c.quantity
-                            )
-                            SEPARATOR ','
-                        ),
-                        ']',
+                        CASE
+                            WHEN COUNT(c.id) > 0 THEN
+                                CONCAT(
+                                    '[',
+                                    GROUP_CONCAT(
+                                        DISTINCT JSON_OBJECT(
+                                            'product_id', p.id,
+                                            'quantity', c.quantity
+                                        )
+                                        SEPARATOR ','
+                                    ),
+                                    ']'
+                                )
+                            ELSE
+                                '[]'
+                        END,
                         ', "total": ',
                         COALESCE(
                             (
-                                SELECT SUM(p.discountedPrice)
+                                SELECT SUM(p.discountedPrice * c.quantity)
                                 FROM products p
                                 JOIN cart c ON p.id = c.product_id
                                 WHERE c.user_id = u.id
@@ -73,11 +69,6 @@ const userQuery = {
                         else if (results && results.length > 0) {
                             const user = results[0];
                             user.cart = JSON.parse(user.cart)
-                            user.cart.cartItems.forEach((cartItem, i) => {
-                                if (!cartItem.id) {
-                                    user.cart.cartItems.splice(i, 1);
-                                }
-                            })
                             delete user.password
                             delete user.passwordResetToken
                             resolve({ ...user, auth_token });

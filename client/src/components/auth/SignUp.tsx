@@ -40,10 +40,12 @@ export default function Signup() {
                         headers: {
                             "access_token": tokenResponse.access_token
                         }
-                    }
+                    },
+                    variables: {cart: localStorage.getItem("cart")}
                 })
                 if (!response.errors) {
                     localStorage.setItem("auth_token", response.data.loginGoogle.auth_token)
+                    localStorage.removeItem("cart")
                     dispatch(login(response.data.loginGoogle))
                     setApiCalling(false)
                     return resolve()
@@ -59,6 +61,9 @@ export default function Signup() {
                     error: {
                         render: (error: any) => error.data
                     }
+                },
+                {
+                    toastId:"signupToast"
                 })
         },
     });
@@ -68,9 +73,10 @@ export default function Signup() {
         e.preventDefault()
         setApiCalling(true)
         toast.promise(new Promise(async (resolve: Function, reject: Function) => {
-            const response: any = await SignUpMutation({ variables: credentials })
+            const response: any = await SignUpMutation({ variables: {...credentials, cart: localStorage.getItem("cart")} })
             if (!response.errors) {
                 localStorage.setItem("auth_token", response.data.createAccount.auth_token)
+                localStorage.removeItem("cart")
                 dispatch(login(response.data.createAccount))
                 setApiCalling(false)
                 return resolve()
@@ -86,6 +92,9 @@ export default function Signup() {
                 error: {
                     render: (error: any) => error.data
                 }
+            },
+            {
+                toastId:"signupToast"
             })
     }
 

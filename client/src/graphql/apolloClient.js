@@ -1,18 +1,23 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+    uri: `${process.env.REACT_APP_BACKEND_URI}/graphql/`,
+});
+
+const authLink = setContext((_, { headers }) => ({
+    headers: {
+        ...headers,
+        auth_token: localStorage.getItem('auth_token')
+    }
+}));
 
 const client = new ApolloClient({
-    uri: process.env.REACT_APP_BACKEND_URI + "/graphql/",
+    link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
-    headers: {
-        "auth_token": localStorage.getItem('auth_token'),
-    },
     defaultOptions: {
-        query: {
-            errorPolicy: 'all',
-        },
-        mutate: {
-            errorPolicy: 'all',
-        },
+        query: { errorPolicy: 'all' },
+        mutate: { errorPolicy: 'all' }
     },
 });
 

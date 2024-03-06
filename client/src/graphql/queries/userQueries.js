@@ -10,14 +10,7 @@ const GET_USER = gql`
       profile
       cart {
         cartItems {
-          id
-          title
-          description
-          price
-          discountedPrice
-          thumbnail
-          seller_id
-          rating
+          product_id
           quantity
         }
         total

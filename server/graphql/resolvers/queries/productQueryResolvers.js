@@ -18,23 +18,27 @@ const productQuery = {
                 dbPool.query(`
                 SELECT 
                 p.*, 
-                AVG(r.rating) AS rating,
-                CONCAT(
-                    '[',
-                    GROUP_CONCAT(
-                        JSON_OBJECT(
-                            'id', r.id,
-                            'reviewer_id', r.reviewer_id,
-                            'reviewer_name', u.name,
-                            'product_id', r.product_id,
-                            'rating', r.rating,
-                            'title', r.title,
-                            'description', r.description
+                CASE
+                    WHEN COUNT(r.id) > 0 THEN
+                        CONCAT(
+                            '[',
+                            GROUP_CONCAT(
+                                JSON_OBJECT(
+                                    'id', r.id,
+                                    'reviewer_id', r.reviewer_id,
+                                    'reviewer_name', u.name,
+                                    'product_id', r.product_id,
+                                    'rating', r.rating,
+                                    'title', r.title,
+                                    'description', r.description
+                                ) SEPARATOR ','
+                            ),
+                            ']'
                         )
-                        SEPARATOR ','
-                    ),
-                    ']'
-                ) AS reviews
+                    ELSE
+                        '[]'
+                END AS reviews,
+                AVG(r.rating) AS rating
             FROM 
                 products p
             LEFT JOIN 
@@ -44,7 +48,7 @@ const productQuery = {
             WHERE 
                 p.id = '${id}'
             GROUP BY 
-                p.id;
+                p.id;                        
                     `, (error, products) => {
                     if (error) {
                         return handleError(error, reject);
@@ -52,11 +56,6 @@ const productQuery = {
                     else if (products && products.length > 0) {
                         const product = products[0];
                         product.reviews = JSON.parse(product.reviews);
-                        product.reviews.forEach((review, i) => {
-                            if (!review.id) {
-                                product.reviews.splice(i, 1);
-                            }
-                        })
                         resolve(product);
                     }
                     else {
@@ -75,23 +74,30 @@ const productQuery = {
                 dbPool.query(`
                 SELECT 
                 p.*,
-                    AVG(r.rating) AS rating,
-                    CONCAT(
-                        '[',
-                        GROUP_CONCAT(
-                            JSON_OBJECT(
-                                'id', r.id,
-                                'reviewer_id', r.reviewer_id,
-                                'reviewer_name', u.name,
-                                'product_id', r.product_id,
-                                'rating', r.rating,
-                                'title', r.title,
-                                'description', r.description
-                            )
-                        SEPARATOR ','
-                        ),
-                        ']'
-                    ) AS reviews
+                CASE
+                    WHEN COUNT(r.id) = 0 THEN
+                        '[]'
+                    ELSE
+                        COALESCE(
+                            CONCAT(
+                                '[',
+                                GROUP_CONCAT(
+                                    JSON_OBJECT(
+                                        'id', r.id,
+                                        'reviewer_id', r.reviewer_id,
+                                        'reviewer_name', u.name,
+                                        'product_id', r.product_id,
+                                        'rating', r.rating,
+                                        'title', r.title,
+                                        'description', r.description
+                                    ) SEPARATOR ','
+                                ),
+                                ']'
+                            ),
+                            '[]'
+                        )
+                END AS reviews,
+                AVG(r.rating) AS rating
             FROM 
                 products p
             LEFT JOIN 
@@ -99,7 +105,7 @@ const productQuery = {
             LEFT JOIN
                 users u ON r.reviewer_id = u.id
             GROUP BY 
-                p.id;
+                p.id;                       
                 `, (error, products) => {
                     if (error) {
                         return handleError(error, reject);
@@ -107,11 +113,6 @@ const productQuery = {
                     else if (products) {
                         products.forEach((product, i) => {
                             products[i].reviews = JSON.parse(product.reviews);
-                            products[i].reviews.forEach((review, j) => {
-                                if (!review.id) {
-                                    products[i].reviews.splice(j, 1);
-                                }
-                            })
                         })
                         return resolve(products);
                     }
