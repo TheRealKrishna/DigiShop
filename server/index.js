@@ -30,5 +30,5 @@ app.get('/api', (req, res) => {
 })
 
 app.listen(process.env.PORT || 80, () => {
-    console.log(`Server Running On http://localhost:${process.env.PORT}`)
+    console.log(`Server Running On http://localhost:${process.env.PORT || 80}`)
 })

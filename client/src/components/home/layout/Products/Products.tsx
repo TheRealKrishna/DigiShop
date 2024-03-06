@@ -1,4 +1,3 @@
-import React, { useEffect, useMemo, useState } from 'react'
 import Styles from "../../../../css/home/layout/Products/Products.module.css"
 import ProductCard from './ProductCard';
 import { useSelector } from 'react-redux';
