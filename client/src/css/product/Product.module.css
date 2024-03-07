@@ -1,0 +1,17 @@
+.productContainer {
+  margin: 10px 20px;
+}
+
+.productMainContainer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.productImageContainer{
+
+}
+
+.productThumbnailContainer{
+  
+}

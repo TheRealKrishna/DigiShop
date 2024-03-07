@@ -6,12 +6,13 @@ import { BsHandbag } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { CDropdown, CDropdownDivider, CDropdownItem, CDropdownMenu, CDropdownToggle } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/userSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import FloatingCart from "../cart/FloatingCart";
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 export default function Navbar() {
 	const [searchBarVisibility, setSearchBarVisibility] = useState<Boolean>(false)
@@ -49,22 +50,22 @@ export default function Navbar() {
 					</div>
 					<div className={Styles.menuIcons}>
 						<IoSearch className={Styles.toggleSearchIcon} onClick={toggleSearchBar} />
-						<CDropdown autoClose placement="bottom-start" variant='nav-item'>
-							<CDropdownToggle caret={false} disabled={!isLoggedIn} color="transparent"><FaRegUser onClick={() => isLoggedIn ? null : navigate("/auth/login")} /></CDropdownToggle>
-							<CDropdownMenu>
-								<CDropdownItem>Action</CDropdownItem>
-								<CDropdownItem>Another action</CDropdownItem>
-								<CDropdownDivider />
-								<CDropdownItem onClick={handleLogout}>Logout</CDropdownItem>
-							</CDropdownMenu>
-						</CDropdown>
+						<Dropdown autoClose placement="bottom-start">
+							<Dropdown.Toggle as={"i"} disabled={!isLoggedIn} color="transparent"><FaRegUser onClick={() => isLoggedIn ? null : navigate("/auth/login")} /></Dropdown.Toggle>
+							<Dropdown.Menu>
+								<Dropdown.Item>Action</Dropdown.Item>
+								<Dropdown.Item>Another action</Dropdown.Item>
+								<Dropdown.Divider />
+								<Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+							</Dropdown.Menu>
+						</Dropdown>
 						<div className={Styles.cartContainer}>
-							<CDropdown autoClose="outside" placement="bottom-start" variant='nav-item'>
-								<CDropdownToggle caret={false} color="transparent"><BsHandbag style={{ strokeWidth: "0.02rem" }} /></CDropdownToggle>
-								<CDropdownMenu className={Styles.floatingCartMenu}>
-									<FloatingCart/>
-								</CDropdownMenu>
-							</CDropdown>
+							<Dropdown autoClose="outside" placement="bottom-start">
+								<Dropdown.Toggle as={"i"} split={false} color="transparent"><BsHandbag style={{ strokeWidth: "0.02rem" }} /></Dropdown.Toggle>
+								<Dropdown.Menu className={Styles.floatingCartMenu}>
+									<FloatingCart />
+								</Dropdown.Menu>
+							</Dropdown>
 							{
 								user?.cart?.cartItems?.length > 0 && <p>{user?.cart?.cartItems?.length}</p>
 							}

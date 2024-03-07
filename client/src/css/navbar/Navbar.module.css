@@ -163,19 +163,7 @@
 
 .menuIcons svg {
 	font-size: 23px;
-	animation: menuIconsBugFix 1ms ease;
-	/* this animation fixes a bug */
 	transition: all ease 0.3s;
-}
-
-@keyframes menuIconsBugFix {
-	0% {
-		transform: scale(1.2);
-	}
-
-	100% {
-		transform: scale(1);
-	}
 }
 
 .menuIcons svg:hover {

@@ -196,7 +196,7 @@
 
 
 .createAccountButton {
-  background-color: rgb(34, 0, 136);
+  background: linear-gradient(240deg, #2b00ff, #6352ff 70%);
   color: white;
   padding: 7px 10px;
   border: 1px solid black;
@@ -207,7 +207,7 @@
 }
 
 .createAccountButton:hover {
-  background-color: rgb(14, 0, 57);
+  background: linear-gradient(240deg, #2000bf, #321bff 70%);
 }
 
 @media (max-width:322px) {

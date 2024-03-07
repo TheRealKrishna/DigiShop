@@ -17,6 +17,8 @@ import Products from './components/home/layout/Products/Products';
 import { GET_PRODUCTS } from './graphql/queries/productQueries';
 import { setProducts } from './redux/slices/productsSlice';
 import { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Product from './components/product/Product';
 
 function App() {
   const dispatch = useDispatch()
@@ -64,6 +66,7 @@ function App() {
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/forgot-password" element={<ForgotPassword />} />
         <Route path="/auth/reset-password" element={<ResetPassword />} />
+        <Route path="/product/:id" element={<><Navbar /><Product /></>} />
       </Routes>
     </Router>
   );

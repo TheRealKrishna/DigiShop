@@ -165,7 +165,7 @@ const userMutation = {
                     ', "total": ',
                     COALESCE(
                         (
-                            SELECT SUM(p.discountedPrice)
+                            SELECT SUM(p.discountedPrice * c.quantity)
                             FROM products p
                             JOIN cart c ON p.id = c.product_id
                             WHERE c.user_id = u.id
@@ -244,7 +244,7 @@ const userMutation = {
                         ', "total": ',
                         COALESCE(
                             (
-                                SELECT SUM(p.discountedPrice)
+                                SELECT SUM(p.discountedPrice * c.quantity)
                                 FROM products p
                                 JOIN cart c ON p.id = c.product_id
                                 WHERE c.user_id = u.id

@@ -30,3 +30,7 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
   background: rgb(90, 90, 90);
 }
+
+.dropdown-toggle::after {
+  display: none !important;
+}

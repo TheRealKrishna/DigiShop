@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/client';
 import { UPDATE_CART } from '../../../../graphql/mutations/userMutations';
 import { updateCart } from "../../../../redux/slices/userSlice";
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }: any) {
   const user = useSelector((state: any) => state.user.user);
@@ -19,7 +20,7 @@ export default function ProductCard({ product }: any) {
 
   const onCartUpdate = async (quantity: any) => {
     if (quantity > 6) {
-      toast.warning("Maximum quantity per product per order is 6", {toastId:"maximumQuantityError", autoClose:3000})
+      toast.warning("Maximum quantity per product per order is 6", { toastId: "maximumQuantityError", autoClose: 3000 })
     }
     else {
       dispatch(updateCart({ product, quantity, isInCart }));
@@ -39,7 +40,7 @@ export default function ProductCard({ product }: any) {
 
   return (
     <div className={Styles.productCard}>
-      <div>
+      <Link to={`/product/${product.id}`} style={{ textDecoration: "none", color: "black" }}>
         <div className={Styles.productImageContainer}>
           <img src={product.thumbnail} alt="" />
         </div>
@@ -52,14 +53,14 @@ export default function ProductCard({ product }: any) {
             </>
           )}
         </div>
-      </div>
+      </Link>
       <div className={Styles.product}>
-        <div className={Styles.productInfo}>
+        <Link to={`/product/${product.id}`} style={{ textDecoration: "none", color: "black" }} className={Styles.productInfo}>
           <div className={Styles.priceContainer}>
             <h5>₹{product.discountedPrice}</h5>
             <p>M.R.P: <del>₹{product.price}</del></p>
           </div>
-        </div>
+        </Link>
         <div className={Styles.purchaseContainer}>
           {isInCart ? (
             <div className={Styles.purchaseInQuantityContainer}>

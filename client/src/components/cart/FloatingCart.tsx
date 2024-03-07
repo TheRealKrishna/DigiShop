@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import Styles from "../../css/cart/FloatingCart.module.css"
 import { Link } from "react-router-dom";
-import { CDropdownDivider } from "@coreui/react";
 import { toast } from "react-toastify";
 import { updateCart } from "../../redux/slices/userSlice";
 import { UPDATE_CART } from "../../graphql/mutations/userMutations";
 import { useMutation } from "@apollo/client";
+import { Dropdown } from "react-bootstrap";
 
 export default function FloatingCart() {
   const user = useSelector((state: any) => state.user.user);
@@ -14,12 +14,12 @@ export default function FloatingCart() {
   const dispatch = useDispatch();
   const [updateCartMutation] = useMutation(UPDATE_CART);
 
-  const onCartUpdate = async (product:any, quantity: any) => {
+  const onCartUpdate = async (product: any, quantity: any) => {
     if (quantity > 6) {
-      toast.warning("Maximum quantity per product per order is 6", {toastId:"maximumQuantityError", autoClose:3000})
+      toast.warning("Maximum quantity per product per order is 6", { toastId: "maximumQuantityError", autoClose: 3000 })
     }
     else {
-      dispatch(updateCart({ product, quantity, isInCart:true }));
+      dispatch(updateCart({ product, quantity, isInCart: true }));
       if (isLoggedIn) {
         await updateCartMutation({
           variables: { productId: product.id, quantity }
@@ -37,7 +37,7 @@ export default function FloatingCart() {
             <h5>VIEW CART</h5>
           </Link>
         </div>
-        <CDropdownDivider />
+        <Dropdown.Divider />
       </div>
       {
         user.cart.cartItems.length > 0 ?
@@ -68,7 +68,7 @@ export default function FloatingCart() {
                     </div>
                     {
                       (i < user.cart.cartItems.length - 1) &&
-                      <CDropdownDivider />
+                      <Dropdown.Divider />
                     }
                   </div>
                 )
@@ -81,7 +81,7 @@ export default function FloatingCart() {
           </div>
       }
       <div>
-        <CDropdownDivider />
+        <Dropdown.Divider />
         <div className={Styles.floatingCartTotalContainer}>
           <h5>SUBTOTAL : </h5>
           <h5>₹{user.cart.total}</h5>
