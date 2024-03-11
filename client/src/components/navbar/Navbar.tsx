@@ -9,7 +9,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/userSlice";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FloatingCart from "../cart/FloatingCart";
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -32,7 +32,7 @@ export default function Navbar() {
 			<div className={Styles.navbarContent}>
 				<div className={Styles.navbarLeftContainer} style={{ display: searchBarVisibility ? "none" : "flex" }}>
 					<GiHamburgerMenu className={Styles.hamburgerMenu} />
-					<div className={Styles.logoContainer}><img src={logoRectangle} alt="logoRectangle" /></div>
+					<Link to="/" className={Styles.logoContainer}><img src={logoRectangle} alt="logoRectangle" /></Link>
 					<div className={Styles.categoryContainer}>
 						<ul>
 							<li><a href="/">Category</a></li>

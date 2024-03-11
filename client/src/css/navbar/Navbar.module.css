@@ -202,12 +202,30 @@
 	cursor: default;
 	min-height: 25vh;
 	max-height: 85vh;
-	overflow: hidden;
+	/* /* overflow: hidden; */
+	min-width: 380px !important;
+	max-width: 97vw !important; 
 }
 
-@media (min-width:320px) {
+@media (max-width:380px) {
 	.floatingCartMenu{
-		min-width: 315px !important;
+		min-width: 320px !important;
+	}
+}
+
+.floatingCartMenu li{	
+	min-height: 150px;
+}
+
+@media (max-width:320px) {
+	.floatingCartMenu{
+		min-width: 300px !important;
+	}
+}
+
+@media (max-width:300px) {
+	.floatingCartMenu{
+		min-width: 0px !important;
 	}
 }
 

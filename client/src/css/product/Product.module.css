@@ -1,17 +1,29 @@
 .productContainer {
-  margin: 10px 20px;
+  margin: 50px 150px;
 }
 
 .productMainContainer{
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 50px;
 }
 
 .productImageContainer{
-
+  display: flex;
+  justify-content: center;
 }
 
 .productThumbnailContainer{
-  
+  width: 350px;
+}
+
+.productThumbnailContainer img{
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.productInfoContainer{
+
 }

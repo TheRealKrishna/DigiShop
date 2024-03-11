@@ -53,7 +53,7 @@ export default function FloatingCart() {
                         <div className={Styles.floatingCartProductInfo}>
                           <div className={Styles.priceContainer}>
                             <p>₹{product.discountedPrice}</p>
-                            <p><del>₹{product.price}</del></p>
+                            <p>* {cartItem.quantity} = ₹{product.discountedPrice * cartItem.quantity}</p>
                           </div>
                           <div className={Styles.floatingCartProductQuantityContainer}>
                             <button onClick={() => cartItem.quantity !== 0 && onCartUpdate(product, cartItem.quantity - 1)} className={Styles.addToCartButton}> - </button>
