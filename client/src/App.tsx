@@ -19,12 +19,13 @@ import { setProducts } from './redux/slices/productsSlice';
 import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Product from './components/product/Product';
+import DevelopmentBuild from "./components/modals/DevelopmentBuild"
+import Cart from './components/cart/Cart';
 
 function App() {
   const dispatch = useDispatch()
   const { loading: userLoading, error: userError, data: userData, refetch: refetchUser } = useQuery(GET_USER);
   const { loading: productsLoading, error: productsError, data: productsData, refetch: refetchProducts } = useQuery(GET_PRODUCTS);
-
   useEffect(() => {
     refetchUser()
     refetchProducts()
@@ -60,6 +61,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      <DevelopmentBuild/>
       <Routes>
         <Route path="/" element={<><Navbar /><Home /><Products /></>} />
         <Route path="/auth/signup" element={<Signup />} />
@@ -67,6 +69,7 @@ function App() {
         <Route path="/auth/forgot-password" element={<ForgotPassword />} />
         <Route path="/auth/reset-password" element={<ResetPassword />} />
         <Route path="/product/:id" element={<><Navbar /><Product /></>} />
+        <Route path="/user/cart" element={<><Navbar /><Cart /></>} />
       </Routes>
     </Router>
   );

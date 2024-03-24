@@ -21,6 +21,7 @@ export default function Navbar() {
 	const dispatch = useDispatch()
 	const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
 	const user = useSelector((state: any) => state.user.user);
+	const [cartToggle, setCartToggle] = useState<boolean>(false)
 	const handleLogout = async () => {
 		localStorage.clear()
 		dispatch(logout())
@@ -60,10 +61,10 @@ export default function Navbar() {
 							</Dropdown.Menu>
 						</Dropdown>
 						<div className={Styles.cartContainer}>
-							<Dropdown autoClose="outside" placement="bottom-start">
+							<Dropdown show={cartToggle} onToggle={()=>setCartToggle(!cartToggle)} autoClose="outside" placement="bottom-start">
 								<Dropdown.Toggle as={"i"} split={false} color="transparent"><BsHandbag style={{ strokeWidth: "0.02rem" }} /></Dropdown.Toggle>
 								<Dropdown.Menu className={Styles.floatingCartMenu}>
-									<FloatingCart />
+									<FloatingCart setCartToggle={setCartToggle} />
 								</Dropdown.Menu>
 							</Dropdown>
 							{

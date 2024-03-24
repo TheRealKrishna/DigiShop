@@ -1,4 +1,208 @@
 ----------------------------------------------------
+Fri Mar 22 2024 10:03:33 GMT+0530 (India Standard Time)
+Error: ER_BAD_DB_ERROR: Unknown database 'digishop'
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Handshake.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:116:18)
+    at dbConnect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:14:9)
+    at Object.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\index.js:9:1)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:58:04 GMT+0530 (India Standard Time)
+GraphQLError: Product Does Not Exist!
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:606:20)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)
+    at Query.EofPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:133:8)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:57:12 GMT+0530 (India Standard Time)
+GraphQLError: Invalid Quantity!
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:563:26
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:2590:44
+    at replenish (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:448:21)
+    at iterateeCallback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:432:21)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:329:20
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:598:14)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:57:02 GMT+0530 (India Standard Time)
+GraphQLError: Invalid Quantity!
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:563:26
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:2590:44
+    at replenish (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:448:21)
+    at iterateeCallback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:432:21)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:329:20
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:583:15)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:54:31 GMT+0530 (India Standard Time)
+GraphQLError: Invalid Quantity!
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:563:26
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:2590:44
+    at replenish (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:448:21)
+    at iterateeCallback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:432:21)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:329:20
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:598:14)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:54:26 GMT+0530 (India Standard Time)
+GraphQLError: Invalid Quantity!
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:563:26
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:2590:44
+    at replenish (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:448:21)
+    at iterateeCallback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:432:21)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:329:20
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:583:15)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:53:25 GMT+0530 (India Standard Time)
+GraphQLError: Invalid Quantity!
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:563:26
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:2590:44
+    at replenish (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:448:21)
+    at iterateeCallback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:432:21)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:329:20
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:598:14)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:53:13 GMT+0530 (India Standard Time)
+GraphQLError: Invalid Quantity!
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:563:26
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:2590:44
+    at replenish (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:448:21)
+    at iterateeCallback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:432:21)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\async\dist\async.js:329:20
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\mutations\userMutationResolvers.js:583:15)
+    at Query.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Query._callback (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:488:16)
+    at Sequence.end (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Query._handleFinalResultPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Query.js:149:8)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:38:23 GMT+0530 (India Standard Time)
+Error: ER_BAD_DB_ERROR: Unknown database 'digishop'
+    at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Handshake.ErrorPacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
+    at Protocol._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:116:18)
+    at dbConnect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:14:9)
+    at Object.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\index.js:9:1)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:26:18 GMT+0530 (India Standard Time)
+AggregateError
+    at internalConnectMultiple (node:net:1114:18)
+    at afterConnectMultiple (node:net:1667:5)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Pool.js:48:16)
+    at Pool.query (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Pool.js:202:8)
+    at E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\productQueryResolvers.js:74:24
+    at new Promise (<anonymous>)
+    at Object.products (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\graphql\resolvers\queries\productQueryResolvers.js:72:16)
+    at field.resolve (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\@apollo\server\dist\cjs\utils\schemaInstrumentation.js:41:28)
+    at executeField (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\graphql\execution\execute.js:492:20)----------------------------------------------------
+
+
+
+----------------------------------------------------
+Tue Mar 12 2024 10:26:08 GMT+0530 (India Standard Time)
+AggregateError
+    at internalConnectMultiple (node:net:1114:18)
+    at afterConnectMultiple (node:net:1667:5)
+    --------------------
+    at Protocol._enqueue (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\Connection.js:116:18)
+    at dbConnect (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\database\connect.js:14:9)
+    at Object.<anonymous> (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\index.js:9:1)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)----------------------------------------------------
+
+
+
+----------------------------------------------------
 Wed Mar 06 2024 15:23:13 GMT+0530 (India Standard Time)
 Error: ER_ACCESS_DENIED_ERROR: Access denied for user ''@'localhost' (using password: NO)
     at Sequence._packetToError (E:\Study Notes\Visual Studio Projects\Learning GraphQL\DigiShop\server\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)

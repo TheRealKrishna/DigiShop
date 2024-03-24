@@ -1,0 +1,12 @@
+.cartPage{
+  margin: 50px 100px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+
+.itemsContainer{
+  padding: 30px 30px;
+  
+}

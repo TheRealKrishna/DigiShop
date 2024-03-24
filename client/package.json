@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-twitter-auth": "^0.0.6"
   }

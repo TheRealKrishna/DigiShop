@@ -7,7 +7,11 @@ import { UPDATE_CART } from "../../graphql/mutations/userMutations";
 import { useMutation } from "@apollo/client";
 import { Dropdown } from "react-bootstrap";
 
-export default function FloatingCart() {
+interface ChildComponentProps {
+  setCartToggle: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FloatingCart: React.FC<ChildComponentProps> = ({ setCartToggle }) => {
   const user = useSelector((state: any) => state.user.user);
   const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
   const products = useSelector((state: any) => state.products.products)
@@ -92,7 +96,7 @@ export default function FloatingCart() {
         <div className={Styles.floatingCartButtonContainer}>
           {
             isLoggedIn ?
-              <Link to={"/user/cart"}><button className={Styles.checkOutButton}>CHECKOUT</button></Link>
+              <Link to={"/user/cart"}><button onClick={()=>setCartToggle(false)} className={Styles.checkOutButton}>CHECKOUT</button></Link>
               :
               <Link to={"/auth/signup"}><button className={Styles.createAccountButton}>CREATE ACCOUNT</button></Link>
           }
@@ -101,3 +105,6 @@ export default function FloatingCart() {
     </div>
   )
 }
+
+
+export default FloatingCart;
