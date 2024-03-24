@@ -1,10 +1,7 @@
 <h1>DigiShop - Ecommerce Marketplace 🛍️</h1>
-<p>Welcome to the README for my ecommerce website, <strong>DigiShop</strong>, built using React.js! This project
-  utilizes various technologies including React, GraphQL, Node.js, MySQL, Redux, and more. Users can buy products as
-  well as sell their own products on this platform.</p>
+<p>Welcome to <strong>Digishop</strong>, where buying and selling meet innovation. Our platform is a dynamic ecommerce marketplace, meticulously crafted with React, Node.js, GraphQL, and MySQL. Seamlessly integrated panels cater to both buyers and sellers, empowering individuals to explore a vast array of products or showcase their own offerings with ease. With a fully responsive design, users can engage in transactions effortlessly across various devices. Join us today and experience a revolutionized approach to online commerce, where buying and selling converge in a vibrant and intuitive marketplace environment.</p>
 <h2>Technologies Used</h2>
 <ul>
-  <li>MERN Stack</li>
   <li>React</li>
   <li>Node.js & Express.js</li>
   <li>MySQL Database</li>
