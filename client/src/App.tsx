@@ -21,6 +21,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Product from './components/product/Product';
 import DevelopmentBuild from "./components/modals/DevelopmentBuild"
 import Cart from './components/cart/Cart';
+import Search from './components/home/search/search';
 
 function App() {
   const dispatch = useDispatch()
@@ -61,9 +62,10 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <DevelopmentBuild/>
+      <DevelopmentBuild />
       <Routes>
         <Route path="/" element={<><Navbar /><Home /><Products /></>} />
+        <Route path="/search" element={<><Navbar /><Search /></>} />
         <Route path="/auth/signup" element={<Signup />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/forgot-password" element={<ForgotPassword />} />

@@ -16,16 +16,24 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export default function Navbar() {
 	const [searchBarVisibility, setSearchBarVisibility] = useState<Boolean>(false)
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const toggleSearchBar = () => setSearchBarVisibility(!searchBarVisibility)
 	const dispatch = useDispatch()
 	const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
 	const user = useSelector((state: any) => state.user.user);
 	const [cartToggle, setCartToggle] = useState<boolean>(false)
+	const [searchQuery, setSearchQuery] = useState("")
+
 	const handleLogout = async () => {
 		localStorage.clear()
 		dispatch(logout())
 		toast.error("Logged out successfully!")
+	}
+
+	const handleSearch = async (e: any) => {
+		e.preventDefault();
+		navigate(`/search?q=${searchQuery}`);
+		setSearchBarVisibility(false);
 	}
 
 	return (
@@ -45,10 +53,10 @@ export default function Navbar() {
 					</div>
 				</div>
 				<div className={Styles.navbarRightContainer} style={{ display: searchBarVisibility ? "none" : "flex" }}>
-					<div className={Styles.searchBarContainer}>
+					<form className={Styles.searchBarContainer} onSubmit={handleSearch}>
 						<IoSearchOutline />
-						<input type="text" placeholder="Search DigiShop" />
-					</div>
+						<input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search DigiShop" />
+					</form>
 					<div className={Styles.menuIcons}>
 						<IoSearch className={Styles.toggleSearchIcon} onClick={toggleSearchBar} />
 						<Dropdown autoClose placement="bottom-start">
@@ -61,7 +69,7 @@ export default function Navbar() {
 							</Dropdown.Menu>
 						</Dropdown>
 						<div className={Styles.cartContainer}>
-							<Dropdown show={cartToggle} onToggle={()=>setCartToggle(!cartToggle)} autoClose="outside" placement="bottom-start">
+							<Dropdown show={cartToggle} onToggle={() => setCartToggle(!cartToggle)} autoClose="outside" placement="bottom-start">
 								<Dropdown.Toggle as={"i"} split={false} color="transparent"><BsHandbag style={{ strokeWidth: "0.02rem" }} /></Dropdown.Toggle>
 								<Dropdown.Menu className={Styles.floatingCartMenu}>
 									<FloatingCart setCartToggle={setCartToggle} />
@@ -74,10 +82,10 @@ export default function Navbar() {
 					</div>
 				</div>
 				<div className={Styles.mobileSearchBarContainer} style={{ display: searchBarVisibility ? "flex" : "none" }}>
-					<div style={{ width: "100%" }}>
+					<form style={{ width: "100%" }} onSubmit={handleSearch}>
 						<IoSearchOutline />
-						<input type="text" placeholder="Search DigiShop" />
-					</div>
+						<input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search DigiShop" />
+					</form>
 					<IoMdCloseCircleOutline style={{ display: searchBarVisibility ? "block" : "none", cursor: "pointer" }} onClick={toggleSearchBar} />
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Styles from "../../../../css/home/layout/Products/ProductCard.module.css";
 import { FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';

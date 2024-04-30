@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import Styles from "../../../../css/home/layout/Products/Products.module.css"
 import ProductCard from './ProductCard';
 import { useSelector } from 'react-redux';
