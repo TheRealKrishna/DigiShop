@@ -37,7 +37,7 @@ const FloatingCart: React.FC<ChildComponentProps> = ({ setCartToggle }) => {
       <div>
         <div className={Styles.floatingCartHeading}>
           <h5>{user.cart.cartItems.length} ITEMS</h5>
-          <Link to={"/user/cart"}>
+          <Link to={"/user/cart"}  onClick={()=>setCartToggle(false)}>
             <h5>VIEW CART</h5>
           </Link>
         </div>
